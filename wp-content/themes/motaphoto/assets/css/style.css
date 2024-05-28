@@ -1,0 +1,91 @@
+
+/* Pour la police Space Mono */
+ @font-face {
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 400; /* Normal */
+    src: url('fonts/SpaceMono-Regular.ttf') format('truetype'); 
+  }
+  
+  @font-face {
+    font-family: 'Space Mono';
+    font-style: italic;
+    font-weight: 400; /* Normal */
+    src: url('fonts/SpaceMono-Italic.ttf') format('truetype'); 
+  }
+  
+  @font-face {
+    font-family: 'Space Mono';
+    font-style: italic;
+    font-weight: 700; /* Gras */
+    src: url('fonts/SpaceMono-BoldItalic.ttf') format('truetype'); 
+  }
+  /* Pour la police Poppins */
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300; /* Normal */
+    src: url('fonts/Poppins-Light.ttf') format('truetype'); 
+  }
+
+  h1 {
+    font-family: 'Poppins';
+    font-weight: 300;
+    font-size: 45px;
+    
+  }
+  .header_logo {
+    width: 216px;
+    margin-left: 120px;
+   }
+
+  .entete{
+    display: flex;
+    width: 1440px;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  .main-navigation{
+    display: flex;
+    justify-content: flex-end;
+  }
+  #main-menu{
+    display: flex;
+    justify-content: flex-end;
+  }
+  #main-menu a{
+    text-decoration: none;
+    color: black;
+    
+  }
+  #main-menu li{
+  padding: 10px 40px 0 10px;
+  list-style: none;
+  }
+/* personnaliser le visuel de mon nouveau menu footer */
+
+.footer-navigation {
+  display: flex;
+  justify-content: center;
+  padding: 7px 0;
+  border-top: 1px solid black;
+}
+#footer-menu{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  }
+#footer-menu a{
+  text-decoration: none;
+  color: black;
+  }
+
+#footer-menu li{
+  
+padding: 10px 40px 0 10px;
+
+}
