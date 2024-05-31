@@ -27,6 +27,12 @@
     font-weight: 300; /* Normal */
     src: url('fonts/Poppins-Light.ttf') format('truetype'); 
   }
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500; /* Normal */
+    src: url('fonts/Poppins-Light.ttf') format('truetype'); 
+  }
 
   h1 {
     font-family: 'Poppins';
@@ -66,26 +72,153 @@
   }
 /* personnaliser le visuel de mon nouveau menu footer */
 
-.footer-navigation {
+footer {
   display: flex;
-  justify-content: center;
-  padding: 7px 0;
+  justify-content: center; /* Centrage horizontal du contenu du footer */
+  align-items: center; /* Centrage vertical du contenu du footer */
   border-top: 1px solid black;
 }
-#footer-menu{
+
+.piedpage {
   display: flex;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  }
+  align-items: center; /* Centrage vertical des éléments */
+  text-align: center; /* Centrage du texte */
+  gap: 60px; /* Espace entre les éléments */
+  justify-content: space-between;
+  
+}
+
+#footer-menu{
+ display: flex;
+ justify-content: space-between;
+ list-style: none;
+ gap: 60px;
+ 
+}
+
+#footer-menu li{
+  display: flex;
+  justify-content: space-between;
+}
 #footer-menu a{
   text-decoration: none;
   color: black;
-  }
+  font-family: Space Mono;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.7px;
 
-#footer-menu li{
+}
+
+.footer-text{ 
+  text-decoration: none;
+  color: black;
+  font-family: Space Mono;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.7px;
+}
+
+
+
+
+
+.image-container img {
+    position: relative; 
+    width: 885.96px;
+    height: 106.05px;
+    top: 18px;
+    left: -141.49px;
+    gap: 0px;
+    opacity: 0px;
+    
+}
+
+.modal-body {
+  position: relative;
+  left: 170px;
+}
+
+#sent p{
+  color:red !important;
+}
+
+.wpcf7-form {
+  width: 150%; 
+  box-sizing: border-box; 
+  margin-top: 50px;
+}
+.modal {
+  display:none;
+  position: fixed;
+  left: 0;
+  top: -1%;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  align-items: center;
+  justify-content: center;
+}
+.wpcf7-form p {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 25px;
+  text-align: left;
+  color: #000000;
+   
+}
+input.wpcf7-form-control {
+width: 263px;
+height: 40px;
+top: 23px;
+gap: 0px;
+border-radius: 8px 8px 8px 8px;
+border: 1px 1px 1px 1px;
+opacity: 0px;
+margin-top: 5px;
+color: #B8BBC2;
   
-padding: 10px 40px 0 10px;
 
+}
+textarea.wpcf7-form-control {
+  width: 263px;
+  height: 210px;
+  top: 23px;
+  gap: 0px;
+  border-radius: 8px 8px 8px 8px;
+  opacity: 0px;
+  color: black;
+  
+}
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 0;
+  border: 5px solid #000000;
+  width: 597px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name:  modalZoomIn;
+  -webkit-animation-duration: 1s;
+  animation-name: modalZoomIn;
+  animation-duration: 1s;
+  overflow: hidden;
+}
+
+
+
+
+/* Animation de zoom en entrée pour le contenu de la modale */
+@keyframes modalZoomIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+@-webkit-keyframes modalZoomIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
 }

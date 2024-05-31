@@ -11,7 +11,7 @@
     
     <?php wp_body_open(); ?>
 <header>
-<section class='entete'>
+<section class="entete">
 
     <div>
           <a href="<?php echo home_url( '/' ); ?>">
