@@ -1,0 +1,52 @@
+/* Personnaliser le visuel de mon nouveau menu footer */
+
+footer {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    border-top: 1px solid black;
+  }
+  
+  .piedpage {
+    display: flex;
+    align-items: center; 
+    text-align: center; 
+    gap: 60px; 
+    justify-content: space-between;
+    
+  }
+  
+  #footer-menu{
+   display: flex;
+   justify-content: space-between;
+   list-style: none;
+   gap: 60px;
+   
+  }
+  
+  #footer-menu li{
+    display: flex;
+    justify-content: space-between;
+  }
+  #footer-menu a{
+    text-decoration: none;
+    color: black;
+    font-family: Space Mono;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23.7px;
+  
+  }
+  
+  .footer-text{ 
+    text-decoration: none;
+    color: black;
+    font-family: Space Mono;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23.7px;
+  }
+  
+  
+  
+  

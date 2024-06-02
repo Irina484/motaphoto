@@ -13,7 +13,7 @@ add_theme_support( 'post-thumbnails' );
 // Chargement des fichiers css et js
 function motaphoto_enqueue_assets() {
     // Enqueue le style CSS
-    wp_enqueue_style('motaphoto-style', get_template_directory_uri() . '/assets/css/style.css');
+    wp_enqueue_style('motaphoto-style', get_template_directory_uri() . '/assets/scss/style.css');
     
     // Enqueue le script JavaScript avec URL absolue
     wp_enqueue_script('motaphoto-js', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), '', true);
