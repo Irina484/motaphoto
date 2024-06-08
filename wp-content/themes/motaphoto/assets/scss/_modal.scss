@@ -30,8 +30,29 @@
   left: 170px;
 }
 
-#sent p{
-  color:red !important;
+#sent input.wpcf7-form-control{
+
+  box-shadow: 0px 2px 1px 0px #D8D8D8;
+  width:  263px;
+height:  50px;
+top: 683px;
+left: 165px;
+padding: 8px 15px 8px 15px;
+gap: 10px;
+border-radius: 2px 0px 0px 0px;
+opacity: 0px;
+margin-left: 5px;
+background-color: #D8D8D8;
+
+
+}
+.contact {
+font-family: Space Mono;
+font-size: 12px;
+font-weight: 400;
+line-height: 17.77px;
+
+
 }
 
 .wpcf7-form {
@@ -46,7 +67,7 @@
   font-weight: 500;
   line-height: 25px;
   text-align: left;
-  color: #000000;
+  color: #000000 !important;
 }
 
 input.wpcf7-form-control {
@@ -58,7 +79,8 @@ border-radius: 8px 8px 8px 8px;
 border: 1px 1px 1px 1px;
 opacity: 0px;
 margin-top: 5px;
-color: #B8BBC2;
+
+border: 1px solid #B8BBC2
 }
 
 textarea.wpcf7-form-control {
@@ -68,7 +90,7 @@ textarea.wpcf7-form-control {
   gap: 0px;
   border-radius: 8px 8px 8px 8px;
   opacity: 0px;
-  color: black;
+  border: 1px solid #B8BBC2
   
 }
 .modal-content {
@@ -83,9 +105,9 @@ textarea.wpcf7-form-control {
   height: 769px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   -webkit-animation-name:  modalZoomIn;
-  -webkit-animation-duration: 1s;
+  -webkit-animation-duration: 0.3s;
   animation-name: modalZoomIn;
-  animation-duration: 1s;
+  animation-duration: 0.3s;
   overflow: hidden;
 }
 

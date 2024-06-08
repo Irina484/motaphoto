@@ -1,6 +1,12 @@
 /*Header*/
 .header_logo {
   width: 216px;
+  height: 14px;
+  top: 31px;
+  left: 146px;
+  gap: 0px;
+  opacity: 0px;
+  
   margin-left: 120px;
  }
 
@@ -23,6 +29,12 @@
 #main-menu a{
   text-decoration: none;
   color: black;
+  font-family: Space Mono;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.7px;
+  text-align: left;
+
   
 }
 #main-menu li{

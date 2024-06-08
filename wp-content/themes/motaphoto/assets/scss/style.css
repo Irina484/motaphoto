@@ -2,6 +2,11 @@
 /*Header*/
 .header_logo {
   width: 216px;
+  height: 14px;
+  top: 31px;
+  left: 146px;
+  gap: 0px;
+  opacity: 0px;
   margin-left: 120px;
 }
 
@@ -26,6 +31,11 @@
 #main-menu a {
   text-decoration: none;
   color: black;
+  font-family: Space Mono;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.7px;
+  text-align: left;
 }
 
 #main-menu li {
@@ -109,8 +119,25 @@ footer {
   left: 170px;
 }
 
-#sent p {
-  color: red !important;
+#sent input.wpcf7-form-control {
+  box-shadow: 0px 2px 1px 0px #D8D8D8;
+  width: 263px;
+  height: 50px;
+  top: 683px;
+  left: 165px;
+  padding: 8px 15px 8px 15px;
+  gap: 10px;
+  border-radius: 2px 0px 0px 0px;
+  opacity: 0px;
+  margin-left: 5px;
+  background-color: #D8D8D8;
+}
+
+.contact {
+  font-family: Space Mono;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17.77px;
 }
 
 .wpcf7-form {
@@ -125,7 +152,7 @@ footer {
   font-weight: 500;
   line-height: 25px;
   text-align: left;
-  color: #000000;
+  color: #000000 !important;
 }
 
 input.wpcf7-form-control {
@@ -137,7 +164,7 @@ input.wpcf7-form-control {
   border: 1px 1px 1px 1px;
   opacity: 0px;
   margin-top: 5px;
-  color: #B8BBC2;
+  border: 1px solid #B8BBC2;
 }
 
 textarea.wpcf7-form-control {
@@ -147,7 +174,7 @@ textarea.wpcf7-form-control {
   gap: 0px;
   border-radius: 8px 8px 8px 8px;
   opacity: 0px;
-  color: black;
+  border: 1px solid #B8BBC2;
 }
 
 .modal-content {
@@ -162,9 +189,9 @@ textarea.wpcf7-form-control {
   height: 769px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: modalZoomIn;
-  -webkit-animation-duration: 1s;
+  -webkit-animation-duration: 0.3s;
   animation-name: modalZoomIn;
-  animation-duration: 1s;
+  animation-duration: 0.3s;
   overflow: hidden;
 }
 
@@ -177,6 +204,66 @@ textarea.wpcf7-form-control {
     transform: scale(1);
   }
 }
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-content {
+  display: flex;
+}
+
+.post-details {
+  flex: 1;
+  padding-right: 20px;
+  width: 420px;
+  top: 605px;
+  left: 144px;
+  gap: 20px;
+  border-bottom: 1px solid black;
+  align-self: flex-end;
+  padding-bottom: 43px;
+}
+
+.post-details h2 {
+  font-family: Space Mono;
+  font-size: 66px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 58px;
+  text-align: left;
+  margin-left: 110px;
+  width: 40%;
+  margin-bottom: auto;
+}
+
+.post-details p {
+  font-family: Space Mono;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.73px;
+  letter-spacing: 0.1em;
+  text-align: left;
+  margin-left: 110px;
+}
+
+.post-thumbnail {
+  flex: 0.9;
+  width: 563px;
+  height: 844px;
+  position: relative;
+  overflow: hidden; /* Les images débordantes sont masquées */
+}
+
+.post-thumbnail img {
+  width: 563px;
+  height: 844px;
+  -o-object-fit: cover;
+     object-fit: cover; /* Utilisez 'cover' pour que l'image couvre entièrement le conteneur */
+  -o-object-position: center;
+     object-position: center; /* Centrez l'image dans le conteneur */
+}
+
 /* Pour la police Space Mono */
 @font-face {
   font-family: "Space Mono";

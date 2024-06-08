@@ -13,7 +13,8 @@
   "liveSassCompile.settings.excludeList": [
     "**/_header.scss",
     "**/_footer.scss",
-    "**/_modal.scss"
+    "**/_modal.scss",
+    "**/_single-photo.scss"
   ],
   "liveSassCompile.settings.generateMap": false,
   "liveSassCompile.settings.autoprefix": []
