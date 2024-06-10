@@ -48,31 +48,38 @@ add_filter('wp_nav_menu_items', 'add_contact_link_to_menu', 10, 2);
 
 function format_img($image_id) {
     $image = wp_get_attachment_metadata($image_id);
-    return $image['width'] > $image['height'];
+    return $image && isset($image['width']) && isset($image['height']) && $image['width'] > $image['height'];
 }
 
 function get_photo_url() {
-    $args = [
-        'post_type' => 'photo',
-        'orderby' => 'rand',
-        'posts_per_page' => 1,
-        'post_status' => 'publish',
-    ];
+    $max_attempts = 5; // Nombre maximum de tentatives
+    $attempts = 0;
 
-    $get_photo = new WP_Query($args);
+    while ($attempts < $max_attempts) {
+        $args = [
+            'post_type' => 'photo',
+            'orderby' => 'rand',
+            'posts_per_page' => 10, // Augmenter le nombre de posts récupérés
+            'post_status' => 'publish',
+        ];
 
-    while ($get_photo->have_posts()) {
-        $get_photo->the_post();
-        $thumbnail_id = get_post_thumbnail_id();
-        if (format_img($thumbnail_id)) {
-            $image_url = get_the_post_thumbnail_url();
-            wp_reset_postdata();
-            return $image_url;
+        $get_photo = new WP_Query($args);
+
+        while ($get_photo->have_posts()) {
+            $get_photo->the_post();
+            $thumbnail_id = get_post_thumbnail_id();
+            if (format_img($thumbnail_id)) {
+                $image_url = get_the_post_thumbnail_url();
+                wp_reset_postdata();
+                return $image_url;
+            }
         }
+
+        wp_reset_postdata();
+        $attempts++;
     }
 
-    wp_reset_postdata();
-    return false;
+    return false; // Retourner false si aucune image paysage n'est trouvée après le nombre maximum de tentatives
 }
 
 

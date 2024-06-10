@@ -1,6 +1,6 @@
 <?php get_header(); ?>
    
-<div class="container">
+<div class="container1">
     <section class="post-content">
         <div class="post-details">
             <?php
@@ -61,9 +61,10 @@
         endwhile; endif;
         ?>
     </section>
-    <section>
-    <div>
-	   <p class="texte">Cette photo vous intéresse ?</p>
+    <section class="container2">
+    <div class="test">
+	   <p >Cette photo vous intéresse ?</p>
+       <input class=" bouton btn-modale" type="button" value="Contact">
     </div>
     </section>
 </div>
@@ -71,3 +72,4 @@
 
 
 <?php get_footer(); ?>
+

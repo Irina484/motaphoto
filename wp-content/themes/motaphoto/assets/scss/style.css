@@ -155,6 +155,15 @@ footer {
   color: #000000 !important;
 }
 
+input#photo_ref {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 25px;
+  text-align: left;
+  color: #000000 !important;
+}
+
 input.wpcf7-form-control {
   width: 263px;
   height: 40px;
@@ -204,7 +213,7 @@ textarea.wpcf7-form-control {
     transform: scale(1);
   }
 }
-.container {
+.container1 {
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -224,7 +233,7 @@ textarea.wpcf7-form-control {
   gap: 20px;
   border-bottom: 1px solid black;
   align-self: flex-end;
-  padding-bottom: 43px;
+  padding-bottom: 20px;
 }
 
 .post-details h2 {
@@ -265,11 +274,63 @@ textarea.wpcf7-form-control {
   margin-left: 15px;
 }
 
+.container2 {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding: 0 10%;
+}
+
+.container2 p {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+}
+
+.test {
+  display: flex;
+  margin-top: 30px;
+  gap: 16%;
+  margin-bottom: 30px;
+}
+
+.bouton {
+  width: 272px;
+  height: 50px;
+  top: 1000px;
+  left: 438px;
+  padding: 8px 15px 8px 15px;
+  gap: 10px;
+  border-radius: 2px 2px 2px 2px;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.0196078431);
+  background: #D8D8D8;
+  font-family: Space Mono;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17.77px;
+  border: #B8BBC2;
+}
+
+.interaction-photo {
+  height: 118px;
+  border-bottom: 1px solid black;
+}
+
+.interaction-photo > div {
+  display: flex;
+  align-items: center;
+}
+
+.interaction-photo__btn {
+  width: 142px;
+}
+
 .hero {
-  width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
+  height: 962px;
+  top: 80px;
 }
 
 .hero h1 {
