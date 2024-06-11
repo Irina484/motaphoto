@@ -43,6 +43,16 @@
   list-style: none;
 }
 
+/* Cache le bouton de menu burger par défaut */
+.menu-toggle {
+  display: none;
+}
+
+/* Affiche le menu de navigation par défaut */
+nav#nav_header {
+  display: block;
+}
+
 /* Personnaliser le visuel de mon nouveau menu footer */
 footer {
   display: flex;
@@ -198,9 +208,9 @@ textarea.wpcf7-form-control {
   height: 769px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: modalZoomIn;
-  -webkit-animation-duration: 0.3s;
+  -webkit-animation-duration: 0.5s;
   animation-name: modalZoomIn;
-  animation-duration: 0.3s;
+  animation-duration: 0.5s;
   overflow: hidden;
 }
 
@@ -288,7 +298,7 @@ textarea.wpcf7-form-control {
   line-height: 21px;
 }
 
-.test {
+.containerstyle {
   display: flex;
   margin-top: 30px;
   gap: 16%;
@@ -302,28 +312,67 @@ textarea.wpcf7-form-control {
   left: 438px;
   padding: 8px 15px 8px 15px;
   gap: 10px;
-  border-radius: 2px 2px 2px 2px;
+  border-radius: 2px;
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.0196078431);
   background: #D8D8D8;
-  font-family: Space Mono;
+  font-family: "Space Mono", monospace;
   font-size: 12px;
   font-weight: 400;
   line-height: 17.77px;
-  border: #B8BBC2;
+  border: 2px solid #B8BBC2;
+  cursor: pointer;
+  transition: 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Propriétés de transition */
 }
 
-.interaction-photo {
-  height: 118px;
-  border-bottom: 1px solid black;
+.bouton:hover {
+  background: #C0C0C0; /* Changement de la couleur de fond au survol */
+  border-color: #A0A0A0; /* Changement de la couleur de la bordure au survol */
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1); /* Augmenter l'ombre au survol */
+  transform: scale(1.05); /* Agrandir légèrement le bouton au survol */
 }
 
-.interaction-photo > div {
+.miniaturestyle {
+  height: 71px;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  margin-top: -50px;
+  margin-left: 300px;
 }
 
-.interaction-photo__btn {
-  width: 142px;
+.miniaturestyle .preview {
+  width: 78px;
+  height: 50%;
+  margin: auto 0 auto auto;
+}
+
+.miniaturestyle .preview img {
+  width: 81px;
+  height: 71px;
+  top: 1461px;
+  left: 6038px;
+  margin-top: -10px;
+}
+
+.miniaturestyle .preview .previous-image {
+  margin-top: 38%;
+}
+
+.miniaturestyle.preview .next-image {
+  margin-top: -38%;
+}
+
+.miniaturestyle .fleches {
+  width: 108px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  margin-top: 92px;
+}
+
+.miniaturestyle .fleches .fleche {
+  width: 25px;
+  cursor: pointer;
 }
 
 .hero {
@@ -351,6 +400,105 @@ textarea.wpcf7-form-control {
   opacity: 0px;
 }
 
+@media all and (max-width: 391px) {
+  .header {
+    margin-top: -10%;
+  }
+  .header_logo {
+    width: 138px;
+    height: 9px;
+    top: 32px;
+    left: 40px;
+    gap: 0px;
+    opacity: 0px;
+  }
+  .hero {
+    overflow: hidden; /* Assurez-vous que le contenu débordant est caché */
+    height: 253px;
+    top: 72px;
+  }
+  .heroimg {
+    position: relative;
+    width: 375px;
+    height: 250.33px;
+    max-height: 30vh; /* Limitez la hauteur de l'image à 30% de la hauteur de la vue */
+    z-index: 0;
+    box-sizing: border-box;
+  }
+  .hero h1 {
+    position: absolute;
+    top: 31%;
+    left: 50%;
+    align-self: center;
+    transform: translate(-50%, -50%); /* Centrez le titre */
+    font-family: "Space Mono", monospace;
+    font-style: italic;
+    font-size: 6.3vw;
+    text-transform: uppercase;
+    text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff, 1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+    mix-blend-mode: lighten;
+    z-index: 1;
+    white-space: nowrap;
+    font-size: 27.59px;
+    font-weight: 700;
+    line-height: 40.86px;
+  }
+  .modal {
+    width: 100%;
+    height: 100%;
+  }
+  .wpcf7-form {
+    margin-left: -30px;
+  }
+  textarea.wpcf7-form-control {
+    width: 60%;
+  }
+  input.wpcf7-form-control {
+    width: 60%;
+    height: 50px;
+  }
+  #menu-item-59 {
+    margin-right: 10%;
+  }
+  #menu-item-60 {
+    margin-right: 10%;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+  }
+  .piedpage {
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+    height: 207px;
+    top: 3686px;
+    left: 179px;
+    gap: 0px;
+  }
+  #footer-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 17px;
+    margin-right: 40px;
+    margin-bottom: 0px;
+  }
+  #footer-menu li {
+    justify-content: center;
+    width: 100%; /* Pour s'assurer que les liens prennent toute la largeur */
+  }
+  #footer-menu a {
+    font-size: 14px;
+    text-align: center; /* Centre le texte pour une meilleure présentation */
+    width: 100%; /* Pour s'assurer que les liens prennent toute la largeur */
+  }
+  .footer-text {
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 120px;
+  }
+}
 /* Pour la police Space Mono */
 @font-face {
   font-family: "Space Mono";

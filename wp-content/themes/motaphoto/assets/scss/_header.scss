@@ -6,7 +6,6 @@
   left: 146px;
   gap: 0px;
   opacity: 0px;
-  
   margin-left: 120px;
  }
 
@@ -40,4 +39,14 @@
 #main-menu li{
 padding: 10px 40px 0 10px;
 list-style: none;
+}
+
+/* Cache le bouton de menu burger par défaut */
+.menu-toggle {
+  display: none;
+}
+
+/* Affiche le menu de navigation par défaut */
+nav#nav_header {
+  display: block;
 }

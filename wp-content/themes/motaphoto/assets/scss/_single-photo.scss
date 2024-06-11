@@ -75,43 +75,81 @@
     line-height: 21px;
 }
 
-.test{
+.containerstyle{
     display: flex;
     margin-top: 30px;
     gap: 16%;
     margin-bottom: 30px;
 }
 
-.bouton{
+.bouton {
     width: 272px;
     height: 50px;
     top: 1000px;
     left: 438px;
     padding: 8px 15px 8px 15px;
     gap: 10px;
-    border-radius: 2px 2px 2px 2px;
+    border-radius: 2px;
     box-shadow: 0px 2px 1px 0px #00000005;
     background: #D8D8D8;
-    font-family: Space Mono;
+    font-family: 'Space Mono', monospace;
     font-size: 12px;
     font-weight: 400;
     line-height: 17.77px;
-    border:  #B8BBC2
+    border: 2px solid #B8BBC2;
+    cursor: pointer; 
+    transition:  0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Propriétés de transition */
 }
 
+.bouton:hover {
+    background: #C0C0C0; /* Changement de la couleur de fond au survol */
+    border-color: #A0A0A0; /* Changement de la couleur de la bordure au survol */
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1); /* Augmenter l'ombre au survol */
+    transform: scale(1.05); /* Agrandir légèrement le bouton au survol */
+}
 
-
-.interaction-photo {
-    height: 118px;
-    border-bottom: 1px solid black;
-    }
-    
-    .interaction-photo>div {
+.miniaturestyle {
+    height: 71px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    }
-    
-    .interaction-photo__btn {
-    width: 142px;
-    }
+    margin-top: -50px;
+    margin-left: 300px;
 
+}
+    
+.miniaturestyle .preview {
+    width: 78px;
+    height: 50%;
+    margin: auto 0 auto auto;
+}
+    
+.miniaturestyle .preview img {
+    width: 81px;
+    height: 71px;
+    top: 1461px;
+    left: 6038px;
+    margin-top: -10px;
+}
+    
+.miniaturestyle .preview .previous-image {
+    margin-top: 38%;
+}
+    
+.miniaturestyle.preview .next-image {
+    margin-top: -38%;
+}
+    
+.miniaturestyle .fleches {
+    width: 108px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    margin-top: 92px;
+}
+    
+.miniaturestyle .fleches .fleche {
+    width: 25px;
+    cursor: pointer;
+
+}

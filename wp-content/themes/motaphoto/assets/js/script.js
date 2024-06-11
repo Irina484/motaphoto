@@ -1,5 +1,7 @@
+
+// Déclenché l'ouverture de la modale //
 document.addEventListener('DOMContentLoaded', function() {
-    var contactLinks = document.querySelectorAll('.contact-link, .btn-modale'); // Ajoutez d'autres classes ici
+    var contactLinks = document.querySelectorAll('.contact-link, .btn-modale'); 
     var modal = document.getElementById('myModal');
 
     contactLinks.forEach(function(contactLink) {
@@ -22,3 +24,31 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// menu burger //
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('toggle');
+    const navMenu = document.getElementById('nav_header');
+
+    toggleButton.addEventListener('click', function() {
+        navMenu.classList.toggle('visible'); 
+    });
+});
+
+// flèches de navigation //
+(function($) {
+  $(document).ready(function () {
+      navigationPhotos($('.fleche-gauche'), $('.previous-image'));
+      navigationPhotos($('.fleche-droite'), $('.next-image'));
+
+      function navigationPhotos(arrow, image) {
+          arrow.hover(
+              function () {
+                  image.css('opacity', '1');
+              },
+              function () {
+                  image.css('opacity', '0');
+              }
+          );
+      }
+  });
+})(jQuery);

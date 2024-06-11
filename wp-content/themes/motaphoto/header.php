@@ -12,11 +12,14 @@
     <?php wp_body_open(); ?>
 <header>
 <section class="entete">
-
     <div>
           <a href="<?php echo home_url( '/' ); ?>">
           <img class="header_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/Logo.png" alt="Logo NMota" ></a>
     </div>
+    <span id="toggle" class="menu-toggle">☰</span>
+             
+    <nav id="nav_header" role="navigation" aria-label="<?php _e('Menu principal', 'Mota_photo'); ?>" class="hidden">
+                
     <?php
 if ( has_nav_menu( 'main' ) ) {
     wp_nav_menu( array(

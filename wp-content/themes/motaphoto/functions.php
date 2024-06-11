@@ -33,8 +33,10 @@ function register_my_menus() {
 }
 add_action( 'after_setup_theme', 'register_my_menus' );
 
+//  Définir un hook qui ajoute un lien "Contact" dans le menu principal pour ouvrir une modale en utilisant la classe CSS contact-link//
+
 function add_contact_link_to_menu($items, $args) {
-    // Vérifiez si c'est le bon menu (par exemple, le menu principal)
+    
     if ($args->theme_location == 'main') {
         // Ajoutez le lien "Contact" avec la classe CSS pour ouvrir la modale
         $contact_link = '<li class="menu-item menu-item-type-custom menu-item-object-custom">
@@ -46,11 +48,12 @@ function add_contact_link_to_menu($items, $args) {
 }
 add_filter('wp_nav_menu_items', 'add_contact_link_to_menu', 10, 2);
 
+// Définir une fonction pour le format paysage, des images dans la section hero//
 function format_img($image_id) {
     $image = wp_get_attachment_metadata($image_id);
     return $image && isset($image['width']) && isset($image['height']) && $image['width'] > $image['height'];
 }
-
+// Définir une fonction pour intégrer le hero avec le script de chargement d’une image aléatoire du catalogue
 function get_photo_url() {
     $max_attempts = 5; // Nombre maximum de tentatives
     $attempts = 0;
@@ -59,7 +62,7 @@ function get_photo_url() {
         $args = [
             'post_type' => 'photo',
             'orderby' => 'rand',
-            'posts_per_page' => 10, // Augmenter le nombre de posts récupérés
+            'posts_per_page' => 10, 
             'post_status' => 'publish',
         ];
 

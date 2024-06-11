@@ -69,6 +69,7 @@ line-height: 17.77px;
   text-align: left;
   color: #000000 !important;
 }
+
 input#photo_ref {
   font-family: Poppins;
   font-size: 12px;
@@ -113,9 +114,9 @@ textarea.wpcf7-form-control {
   height: 769px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   -webkit-animation-name:  modalZoomIn;
-  -webkit-animation-duration: 0.3s;
+  -webkit-animation-duration: 0.5s;
   animation-name: modalZoomIn;
-  animation-duration: 0.3s;
+  animation-duration: 0.5s;
   overflow: hidden;
 }
 
