@@ -55,18 +55,31 @@ function format_img($image_id) {
 }
 // Définir une fonction pour intégrer le hero avec le script de chargement d’une image aléatoire du catalogue
 function get_photo_url() {
-    $max_attempts = 5; // Nombre maximum de tentatives
-    $attempts = 0;
-
-    while ($attempts < $max_attempts) {
+    
         $args = [
             'post_type' => 'photo',
             'orderby' => 'rand',
-            'posts_per_page' => 10, 
+            'posts_per_page' => -1, 
             'post_status' => 'publish',
         ];
 
-        $get_photo = new WP_Query($args);
+        $photos = get_posts($args);
+        
+        $index= 0;
+        $url= null;
+
+        while (!$url && $index < count($photos)) {
+            $current = $photos[$index];
+            $thumbnail_id = get_post_thumbnail_id($current);
+            if (format_img($thumbnail_id)) {
+                $url = wp_get_attachment_url($thumbnail_id); // Renvoie l'URL de l'image
+            } else {
+                $index++;
+            }
+        }
+        return $url;
+/*    
+
 
         while ($get_photo->have_posts()) {
             $get_photo->the_post();
@@ -79,11 +92,13 @@ function get_photo_url() {
         }
 
         wp_reset_postdata();
-        $attempts++;
-    }
+      
+    
 
     return false; // Retourner false si aucune image paysage n'est trouvée après le nombre maximum de tentatives
+*/
 }
+
 
 
 

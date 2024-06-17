@@ -16,7 +16,8 @@
     "**/_modal.scss",
     "**/_single-photo.scss",
     "**/_front-page.scss",
-    "**/_responsive.scss"
+    "**/_responsive.scss",
+    "**/_photo_block.scss"
   ],
   "liveSassCompile.settings.generateMap": false,
   "liveSassCompile.settings.autoprefix": []

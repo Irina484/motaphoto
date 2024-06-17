@@ -62,27 +62,27 @@
         ?>
     </section>
     <section class="container2">
-    <div class="containerstyle">
-	   <p >Cette photo vous intéresse ?</p>
-       <input class=" bouton btn-modale" type="button" value="Contact">
+        <div class="containerstyle">
+	        <p >Cette photo vous intéresse ?</p>
+            <input class=" bouton contact-link" type="button" value="Contact">
   
 
     <!-- Navigation entre les photos et affichage des photos en miniature -->
-<div class="miniaturestyle">
+        <div class="miniaturestyle">
     <!-- Récupération du post suivant et précédent pour afficher leur image au-dessus des flèches -->
-    <?php
-        $prevPost = get_previous_post();
-        $nextPost = get_next_post();
-        if (!empty($prevPost)) {
-            $prevThumbnail = get_the_post_thumbnail_url($prevPost->ID);
-            $prevLink = get_permalink($prevPost);
-        }    
-        if (!empty($nextPost)) {
-            $nextThumbnail = get_the_post_thumbnail_url($nextPost->ID);
-            $nextLink = get_permalink($nextPost);
-        }    
-    ?>
-    <div class="fleches">
+        <?php
+            $prevPost = get_previous_post();
+            $nextPost = get_next_post();
+            if (!empty($prevPost)) {
+                $prevThumbnail = get_the_post_thumbnail_url($prevPost->ID);
+                $prevLink = get_permalink($prevPost);
+            }    
+            if (!empty($nextPost)) {
+                $nextThumbnail = get_the_post_thumbnail_url($nextPost->ID);
+                $nextLink = get_permalink($nextPost);
+            }    
+        ?>
+        <div class="fleches">
         <!-- Affichage de la flèche pour le post précédent contenant son URL -->
         <?php if (!empty($prevPost)) { ?>
             <a href="<?php echo $prevLink; ?>">
@@ -90,7 +90,7 @@
                     alt="Flèche pointant vers la gauche" />
             </a>
         <?php } else { ?>
-            <img style="opacity:0; cursor: auto;" class="fleche"
+            <img  class="fleche"
                 src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow_left.png" />
         <?php } ?>
         
@@ -101,7 +101,7 @@
                     alt="Flèche pointant vers la droite" />
             </a>
         <?php } else { ?>
-            <img style="opacity:0; cursor: auto;" class="fleche"
+            <img class="fleche"
                 src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow_right.png" />
         <?php } ?>
     </div>
@@ -119,12 +119,53 @@
             <img class="next-image" src="<?php echo $nextThumbnail; ?>" alt="Prévisualisation image suivante">
         </div>
     <?php } ?>
-</div>
-</div>
+        </div>
+        </div>
     </section>
 </div>
+<!-- Section liste des photos apparentées -->
+<section class="recommandations">
+	 <h3>Vous aimerez aussi</h3>
+	 <div class="recommandations_images ">
+		<!-- récupération des posts qui ont la même catégorie que le post courant -->
+        <?php
+$categories = get_the_term_list(get_the_ID(), 'categorie', '', ', ', '');
+if (!is_wp_error($categories)) {
+    $category_list = strip_tags($categories);
+    $term = get_term_by('name', $category_list, 'categorie');
 
+    if ($term) {
+        $categorie_slug = $term->slug;
 
+        $args = array(
+            'post_type' => 'photo',
+            'post__not_in' => array($post->ID),
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'categorie',
+                    'field' => 'slug',
+                    'terms' => $categorie_slug,
+                ),
+            ),
+            'orderby' => 'rand',
+            'posts_per_page' => 2, // Afficher seulement 2 posts
+        );
+
+        $photos = get_posts($args);
+
+        if (!empty($photos)) {
+            foreach ($photos as $photo) {
+                setup_postdata($photo);
+                include 'templates-parts/photo_block.php';
+            }
+            wp_reset_postdata();
+        } 
+} else {
+    echo 'Aucune catégorie trouvée';
+}
+}
+?>
+</section>
 
 <?php get_footer(); ?>
 

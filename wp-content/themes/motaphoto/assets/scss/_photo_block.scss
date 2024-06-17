@@ -1,0 +1,22 @@
+.photo-post {
+   
+   
+    display: flex;
+    gap: 130px;
+  
+
+  }
+  
+  .photo-post .img-photo {
+    width: 564px;
+    height: 495px;
+    top: 1237px;
+    left: 144px;
+    object-fit: cover;
+    margin-top: -20px;
+    
+  }
+  
+  .photo-post>div {
+  display: inline;
+  }

@@ -289,6 +289,7 @@ textarea.wpcf7-form-control {
   flex-direction: column;
   width: 80%;
   padding: 0 10%;
+  height: 118px;
 }
 
 .container2 p {
@@ -352,6 +353,7 @@ textarea.wpcf7-form-control {
   top: 1461px;
   left: 6038px;
   margin-top: -10px;
+  margin-left: -3px;
 }
 
 .miniaturestyle .preview .previous-image {
@@ -363,16 +365,45 @@ textarea.wpcf7-form-control {
 }
 
 .miniaturestyle .fleches {
-  width: 108px;
+  width: 85px;
   display: flex;
   justify-content: space-between;
   position: absolute;
-  margin-top: 92px;
+  margin-top: 100px;
 }
 
 .miniaturestyle .fleches .fleche {
   width: 25px;
   cursor: pointer;
+}
+
+.recommandations {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  border-top: 1px solid #000000;
+  margin-left: 150px;
+}
+
+.recommandations_images {
+  display: flex;
+  margin-top: 30px;
+  gap: 16%;
+  margin-bottom: 30px;
+}
+
+.recommandations h3 {
+  font-family: Space Mono;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26.66px;
+  text-align: left;
+  text-transform: uppercase;
+  width: 229px;
+  height: 27px;
+  top: 1158px;
+  left: 145px;
+  margin-top: 60px;
 }
 
 .hero {
@@ -499,6 +530,25 @@ textarea.wpcf7-form-control {
     padding-bottom: 120px;
   }
 }
+.photo-post {
+  display: flex;
+  gap: 130px;
+}
+
+.photo-post .img-photo {
+  width: 564px;
+  height: 495px;
+  top: 1237px;
+  left: 144px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-top: -20px;
+}
+
+.photo-post > div {
+  display: inline;
+}
+
 /* Pour la police Space Mono */
 @font-face {
   font-family: "Space Mono";

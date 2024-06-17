@@ -1,7 +1,7 @@
 
 // Déclenché l'ouverture de la modale //
 document.addEventListener('DOMContentLoaded', function() {
-    var contactLinks = document.querySelectorAll('.contact-link, .btn-modale'); 
+    var contactLinks = document.querySelectorAll('.contact-link'); 
     var modal = document.getElementById('myModal');
 
     contactLinks.forEach(function(contactLink) {
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// flèches de navigation //
+// Les flèches de navigation //
 (function($) {
   $(document).ready(function () {
       navigationPhotos($('.fleche-gauche'), $('.previous-image'));
