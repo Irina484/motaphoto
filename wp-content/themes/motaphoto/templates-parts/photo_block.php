@@ -13,10 +13,10 @@
     $reference = get_field('reference', $photo->ID); 
     ?>
     
-    <img  class="img-photo" 
+    <img class="img-photo" 
         src="<?php echo esc_url($thumbnail_url); ?>" 
         alt="<?php echo esc_attr(get_the_title($photo->ID)); ?>" 
         data-ref="<?php echo esc_attr($reference); ?>"
         data-categorie="<?php echo strip_tags($categories); ?>"
     />
-    
+</div>

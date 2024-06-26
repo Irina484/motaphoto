@@ -17,7 +17,8 @@ function motaphoto_enqueue_assets() {
     
     // Enqueue le script JavaScript avec URL absolue
     wp_enqueue_script('motaphoto-js', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), '', true);
-    wp_localize_script('motaphoto-js','motaphoto-ajax', array('ajax_url' => admin_url('admin-ajax.php')));
+
+   wp_localize_script('motaphoto-js', 'motaphoto_ajax', array('ajax_url' => admin_url('admin-ajax.php'),'nonce' => wp_create_nonce('wp_rest')));
 }
 
 // Ajoutez la fonction combinée au hook wp_enqueue_scripts
@@ -64,7 +65,6 @@ function get_photo_url() {
         ];
 
         $photos = get_posts($args);
-        
         $index= 0;
         $url= null;
 
@@ -78,69 +78,120 @@ function get_photo_url() {
             }
         }
         return $url;
-/*    
 
-
-        while ($get_photo->have_posts()) {
-            $get_photo->the_post();
-            $thumbnail_id = get_post_thumbnail_id();
-            if (format_img($thumbnail_id)) {
-                $image_url = get_the_post_thumbnail_url();
-                wp_reset_postdata();
-                return $image_url;
-            }
-        }
-
-        wp_reset_postdata();
-      
-    
-
-    return false; // Retourner false si aucune image paysage n'est trouvée après le nombre maximum de tentatives
-*/
 }
-
-
-
 
 
 // Ajoutez une requête pour récupérer le contenu Photo //
 
- function motaphoto_photos()
- {
-    $photos = new WP_Query([
-        'post_type' => 'photo',
-        'posts_per_page' => 8,
-        'order' => 'DESC',
+function motaphoto_photos() {
+    // Vérifiez et assignez les variables de POST
+    $categorie = isset($_POST['categorie']) ? sanitize_text_field($_POST['categorie']) : '';
+    $format = isset($_POST['format']) ? sanitize_text_field($_POST['format']) : '';
+    $ordre = isset($_POST['ordre']) ? sanitize_text_field($_POST['ordre']) : 'DESC';
+    $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
+
+    // Arguments de la requête WP_Query
+    $args = array(
+        'post_type' => 'photos',
+        'posts_per_page' => get_option('posts_per_page'),
+        'order' => $ordre,
         'orderby' => 'date',
-        'post_status'=> 'publish',
+        'post_status' => 'publish',
+        'paged' => $paged,
         'tax_query' => array(
-            'relation' => 'AND',
-            array(
-                'taxonomy' => 'custom_categorie',
-                'field' => 'slug',
-                'terms' => $categorie, 
-            ),
-            array(
-                'taxonomy' => 'custom_format',
-                'field' => 'slug',
-                'terms' => $format,
-            )
-            ),
-        ]);
-        if ($photos->have_posts()) {
-            while ($photos->have_posts());
-            get_template_part('templates-parts/photo_block.php');
-        }  
-         else {
-        
-            echo 'No posts found';
-        }
-        wp_reset_postdata();
+            'relation' => 'AND', // Par défaut, nous définissons la relation comme AND
+        ),
+    );
+
+    // Filtre par catégorie
+    if (!empty($categorie)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'category',
+            'field' => 'slug',
+            'terms' => $categorie,
+        );
     }
-           
+
+    // Filtre par format
+    if (!empty($format)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'post_format',
+            'field' => 'slug',
+            'terms' => $format,
+        );
+    }
 
 
+    // Affichez les arguments pour déboguer dans la réponse Ajax
+    echo '<pre>';
+    var_dump($args);
+    echo '</pre>';
+
+    // Exécuter la requête WP_Query
+    $photos = new WP_Query($args);
+
+    // Boucle pour afficher les résultats
+    if ($photos->have_posts()) {
+        while ($photos->have_posts()) {
+            $photos->the_post();
+            get_template_part('template-parts/photo_block');
+        }
+    } else {
+        echo 'No posts found';
+    }
+
+    wp_reset_postdata();
+
+    wp_die(); // Terminer proprement la requête Ajax
+}
 add_action('wp_ajax_motaphoto_photos', 'motaphoto_photos');
 add_action('wp_ajax_nopriv_motaphoto_photos', 'motaphoto_photos');
 
 
+
+
+add_action('wp_ajax_single_post', 'single_post');
+add_action('wp_ajax_nopriv_single_post', 'single_post');
+
+function single_post() {
+    check_ajax_referer('wp_rest', 'nonce');
+
+    if (isset($_POST['posts_per_page']) && isset($_POST['categorie_slug'])) {
+        $posts_per_page = intval($_POST['posts_per_page']);
+        $categorie_slug = sanitize_text_field($_POST['categorie_slug']);
+
+        // Logique pour récupérer les articles
+        $args = array(
+            'post_type' => 'photo',
+            'posts_per_page' => $posts_per_page,
+            'post__not_in' => array(get_the_ID()),
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'categorie',
+                    'field' => 'slug',
+                    'terms' => $categorie_slug,
+                ),
+            ),
+            'orderby' => 'rand',
+        );
+
+        $photos = get_posts($args);
+
+        ob_start();
+        if (!empty($photos)) {
+            foreach ($photos as $photo) {
+                setup_postdata($photo);
+                include 'templates-parts/photo_block.php';
+            }
+        } else {
+            echo '<p class="texte">Aucune image trouvée dans cette catégorie</p>';
+        }
+
+        $response = ob_get_clean();
+        echo $response; // Retourne le contenu HTML directement
+
+    }
+
+    wp_die();
+}

@@ -44,13 +44,12 @@
 }
 
 /* Cache le bouton de menu burger par défaut */
-.menu-toggle {
+.menu-button {
   display: none;
 }
 
-/* Affiche le menu de navigation par défaut */
-nav#nav_header {
-  display: block;
+.close-button {
+  display: none;
 }
 
 /* Personnaliser le visuel de mon nouveau menu footer */
@@ -253,7 +252,7 @@ textarea.wpcf7-form-control {
   font-weight: 400;
   line-height: 58px;
   text-align: left;
-  width: 40%;
+  width: 45%;
   margin-bottom: auto;
 }
 
@@ -326,55 +325,64 @@ textarea.wpcf7-form-control {
 }
 
 .bouton:hover {
-  background: #C0C0C0; /* Changement de la couleur de fond au survol */
-  border-color: #A0A0A0; /* Changement de la couleur de la bordure au survol */
-  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1); /* Augmenter l'ombre au survol */
-  transform: scale(1.05); /* Agrandir légèrement le bouton au survol */
+  background: #C0C0C0;
+  border-color: #A0A0A0;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
 }
 
 .miniaturestyle {
-  height: 71px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -50px;
-  margin-left: 300px;
-}
-
-.miniaturestyle .preview {
-  width: 78px;
-  height: 50%;
-  margin: auto 0 auto auto;
-}
-
-.miniaturestyle .preview img {
-  width: 81px;
-  height: 71px;
-  top: 1461px;
-  left: 6038px;
-  margin-top: -10px;
-  margin-left: -3px;
-}
-
-.miniaturestyle .preview .previous-image {
-  margin-top: 38%;
-}
-
-.miniaturestyle.preview .next-image {
-  margin-top: -38%;
+  margin-top: -40px;
+  margin-left: 235px;
 }
 
 .miniaturestyle .fleches {
   width: 85px;
   display: flex;
   justify-content: space-between;
-  position: absolute;
+  position: relative;
   margin-top: 100px;
+  margin-left: 60px;
 }
 
 .miniaturestyle .fleches .fleche {
   width: 25px;
   cursor: pointer;
+}
+
+.fleches {
+  position: relative;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+}
+
+.photo-preview {
+  display: none;
+  position: absolute;
+  margin-left: 75px;
+  margin-top: -75px;
+  transform: translateX(-50%);
+  width: 150px; /* Ajustez la taille souhaitée */
+  z-index: 10; /* S'assurer que la preview est au-dessus des autres éléments */
+}
+
+.photo-preview img {
+  width: 81px;
+  height: 71px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* Afficher la prévisualisation au survol des liens */
+.nav-link:hover + .photo-preview,
+.photo-preview:hover {
+  display: block;
 }
 
 .recommandations {
@@ -389,7 +397,7 @@ textarea.wpcf7-form-control {
   display: flex;
   margin-top: 30px;
   gap: 16%;
-  margin-bottom: 30px;
+  margin-bottom: 90px;
 }
 
 .recommandations h3 {
@@ -404,6 +412,14 @@ textarea.wpcf7-form-control {
   top: 1158px;
   left: 145px;
   margin-top: 60px;
+}
+
+.texte {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 21px;
+  text-align: right;
 }
 
 .hero {
@@ -438,10 +454,7 @@ textarea.wpcf7-form-control {
   .header_logo {
     width: 138px;
     height: 9px;
-    top: 32px;
-    left: 40px;
-    gap: 0px;
-    opacity: 0px;
+    margin-left: 20px;
   }
   .hero {
     overflow: hidden; /* Assurez-vous que le contenu débordant est caché */
@@ -528,6 +541,98 @@ textarea.wpcf7-form-control {
     font-size: 14px;
     text-align: center;
     padding-bottom: 120px;
+  }
+  .post-content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .containerstyle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .recommandations_images {
+    display: flex;
+    flex-direction: column;
+  }
+  .photo-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .miniaturestyle .fleches {
+    display: none;
+  }
+  .miniaturestyle .preview img {
+    display: none;
+  }
+  .post-details {
+    margin-left: 50px;
+  }
+  .menu-button {
+    display: block;
+    cursor: pointer;
+    margin-right: 950px;
+    background-color: #fff;
+    border: none;
+  }
+  #main-menu {
+    display: none;
+    position: absolute;
+    top: 12%; /* Place le menu de navigation sous l'icône burger */
+    left: 0; /* Aligne le menu de navigation sur la gauche */
+    width: 100%; /* Assure que le menu de navigation prend toute la largeur */
+    height: 102%;
+    background-color: #E00000; /* Ajoute un fond blanc */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1); /* Ajoute une ombre */
+    z-index: 2; /* Assure que le menu de navigation est au-dessus du contenu */
+    justify-content: center;
+    text-align: center; /* Centre les éléments du menu */
+  }
+  #main-menu.hidden {
+    display: none; /* Masquer le menu de navigation par défaut sur les petits écrans */
+  }
+  #main-menu {
+    display: none; /* Masquer le menu par défaut */
+  }
+  #main-menu.visible {
+    display: block; /* Afficher le menu lorsque la classe 'visible' est ajoutée */
+  }
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+  .entete {
+    display: flex;
+  }
+  #main-menu.visible {
+    display: block;
+  }
+  .main-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #main-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #main-menu a {
+    text-decoration: none;
+    color: white;
+    font-family: Space Mono;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23.7px;
+    text-align: left;
+  }
+  #main-menu li {
+    list-style: none;
   }
 }
 .photo-post {

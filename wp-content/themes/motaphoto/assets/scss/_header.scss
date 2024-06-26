@@ -42,11 +42,10 @@ list-style: none;
 }
 
 /* Cache le bouton de menu burger par défaut */
-.menu-toggle {
+.menu-button  {
+  display: none;
+}
+.close-button{
   display: none;
 }
 
-/* Affiche le menu de navigation par défaut */
-nav#nav_header {
-  display: block;
-}

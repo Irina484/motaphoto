@@ -1,0 +1,1040 @@
+[19-Jun-2024 10:22:52 UTC] Categorie: 
+[19-Jun-2024 10:22:52 UTC] Format: 
+[19-Jun-2024 10:22:52 UTC] Ordre: DESC
+[19-Jun-2024 10:22:52 UTC] Paged: 1
+[19-Jun-2024 10:22:52 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 10:32:42 UTC] Categorie: 
+[19-Jun-2024 10:32:42 UTC] Format: 
+[19-Jun-2024 10:32:42 UTC] Ordre: DESC
+[19-Jun-2024 10:32:42 UTC] Paged: 1
+[19-Jun-2024 10:32:42 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 11:21:39 UTC] Categorie: 
+[19-Jun-2024 11:21:39 UTC] Format: 
+[19-Jun-2024 11:21:39 UTC] Ordre: DESC
+[19-Jun-2024 11:21:39 UTC] Paged: 1
+[19-Jun-2024 11:21:39 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 11:32:04 UTC] Categorie: all
+[19-Jun-2024 11:32:04 UTC] Format: all
+[19-Jun-2024 11:32:04 UTC] Ordre: DESC
+[19-Jun-2024 11:32:04 UTC] Paged: 1
+[19-Jun-2024 11:32:04 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+        )
+
+)
+
+[19-Jun-2024 11:32:14 UTC] Categorie: concert
+[19-Jun-2024 11:32:14 UTC] Format: all
+[19-Jun-2024 11:32:14 UTC] Ordre: DESC
+[19-Jun-2024 11:32:14 UTC] Paged: 1
+[19-Jun-2024 11:32:14 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => concert
+                )
+
+        )
+
+)
+
+[19-Jun-2024 11:32:33 UTC] Categorie: all
+[19-Jun-2024 11:32:33 UTC] Format: all
+[19-Jun-2024 11:32:33 UTC] Ordre: DESC
+[19-Jun-2024 11:32:33 UTC] Paged: 1
+[19-Jun-2024 11:32:33 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+        )
+
+)
+
+[19-Jun-2024 18:50:30 UTC] Categorie: 
+[19-Jun-2024 18:50:30 UTC] Format: 
+[19-Jun-2024 18:50:30 UTC] Ordre: DESC
+[19-Jun-2024 18:50:30 UTC] Paged: 1
+[19-Jun-2024 18:50:30 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 18:51:34 UTC] Categorie: 
+[19-Jun-2024 18:51:34 UTC] Format: 
+[19-Jun-2024 18:51:34 UTC] Ordre: DESC
+[19-Jun-2024 18:51:34 UTC] Paged: 1
+[19-Jun-2024 18:51:34 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 18:52:12 UTC] Categorie: 
+[19-Jun-2024 18:52:12 UTC] Format: 
+[19-Jun-2024 18:52:12 UTC] Ordre: DESC
+[19-Jun-2024 18:52:12 UTC] Paged: 1
+[19-Jun-2024 18:52:12 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 18:52:33 UTC] Categorie: 
+[19-Jun-2024 18:52:33 UTC] Format: 
+[19-Jun-2024 18:52:33 UTC] Ordre: DESC
+[19-Jun-2024 18:52:33 UTC] Paged: 1
+[19-Jun-2024 18:52:33 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 18:52:57 UTC] Categorie: 
+[19-Jun-2024 18:52:57 UTC] Format: 
+[19-Jun-2024 18:52:57 UTC] Ordre: DESC
+[19-Jun-2024 18:52:57 UTC] Paged: 1
+[19-Jun-2024 18:52:57 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 18:53:37 UTC] Categorie: 
+[19-Jun-2024 18:53:37 UTC] Format: 
+[19-Jun-2024 18:53:37 UTC] Ordre: DESC
+[19-Jun-2024 18:53:37 UTC] Paged: 1
+[19-Jun-2024 18:53:37 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 18:54:08 UTC] PHP Parse error:  syntax error, unexpected token "=>", expecting "]" in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\front-page.php on line 19
+[19-Jun-2024 18:54:22 UTC] Categorie: 
+[19-Jun-2024 18:54:22 UTC] Format: 
+[19-Jun-2024 18:54:22 UTC] Ordre: DESC
+[19-Jun-2024 18:54:22 UTC] Paged: 1
+[19-Jun-2024 18:54:22 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 18:55:01 UTC] PHP Parse error:  syntax error, unexpected token "." in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\front-page.php on line 22
+[19-Jun-2024 18:55:22 UTC] Categorie: 
+[19-Jun-2024 18:55:22 UTC] Format: 
+[19-Jun-2024 18:55:22 UTC] Ordre: DESC
+[19-Jun-2024 18:55:22 UTC] Paged: 1
+[19-Jun-2024 18:55:22 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 18:59:45 UTC] Categorie: 
+[19-Jun-2024 18:59:45 UTC] Format: 
+[19-Jun-2024 18:59:45 UTC] Ordre: DESC
+[19-Jun-2024 18:59:45 UTC] Paged: 1
+[19-Jun-2024 18:59:45 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 19:00:37 UTC] Categorie: 
+[19-Jun-2024 19:00:37 UTC] Format: 
+[19-Jun-2024 19:00:37 UTC] Ordre: DESC
+[19-Jun-2024 19:00:37 UTC] Paged: 1
+[19-Jun-2024 19:00:37 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 19:00:54 UTC] Categorie: 
+[19-Jun-2024 19:00:54 UTC] Format: 
+[19-Jun-2024 19:00:54 UTC] Ordre: DESC
+[19-Jun-2024 19:00:54 UTC] Paged: 1
+[19-Jun-2024 19:00:54 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 19:05:40 UTC] Categorie: 
+[19-Jun-2024 19:05:40 UTC] Format: 
+[19-Jun-2024 19:05:40 UTC] Ordre: DESC
+[19-Jun-2024 19:05:40 UTC] Paged: 1
+[19-Jun-2024 19:05:40 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 19:13:31 UTC] Categorie: 
+[19-Jun-2024 19:13:31 UTC] Format: 
+[19-Jun-2024 19:13:31 UTC] Ordre: DESC
+[19-Jun-2024 19:13:31 UTC] Paged: 1
+[19-Jun-2024 19:13:31 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 19:19:24 UTC] Categorie: 
+[19-Jun-2024 19:19:24 UTC] Format: 
+[19-Jun-2024 19:19:24 UTC] Ordre: DESC
+[19-Jun-2024 19:19:24 UTC] Paged: 1
+[19-Jun-2024 19:19:24 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 19:22:15 UTC] Categorie: 
+[19-Jun-2024 19:22:15 UTC] Format: 
+[19-Jun-2024 19:22:15 UTC] Ordre: DESC
+[19-Jun-2024 19:22:15 UTC] Paged: 1
+[19-Jun-2024 19:22:15 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+    [tax_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => 
+                )
+
+            [1] => Array
+                (
+                    [taxonomy] => format
+                    [field] => slug
+                    [terms] => 
+                )
+
+        )
+
+)
+
+[19-Jun-2024 19:36:35 UTC] Array
+(
+    [post_type] => photo
+    [posts_per_page] => 8
+    [order] => DESC
+    [orderby] => date
+    [post_status] => publish
+    [paged] => 1
+)
+
+[19-Jun-2024 21:46:18 UTC] Categorie slug: 
+[19-Jun-2024 21:46:18 UTC] Format slug: 
+[19-Jun-2024 22:09:19 UTC] Categorie slug: 
+[19-Jun-2024 22:09:19 UTC] Format slug: 
+[19-Jun-2024 22:16:38 UTC] Categorie slug: [object Object]
+[19-Jun-2024 22:16:38 UTC] Format slug: 
+[19-Jun-2024 22:17:17 UTC] Categorie slug: [object Object]
+[19-Jun-2024 22:17:17 UTC] Format slug: 
+[19-Jun-2024 22:18:04 UTC] Categorie slug: [object Object]
+[19-Jun-2024 22:18:04 UTC] Format slug: 
+[19-Jun-2024 22:27:19 UTC] Categorie slug: [object Object]
+[19-Jun-2024 22:27:19 UTC] Format slug: 
+[19-Jun-2024 22:27:32 UTC] Categorie slug: [object Object]
+[19-Jun-2024 22:27:32 UTC] Format slug: 
+[20-Jun-2024 09:16:40 UTC] Categorie slug: [object Object]
+[20-Jun-2024 09:16:40 UTC] Format slug: 
+[20-Jun-2024 09:37:52 UTC] Categorie slug: [object Object]
+[20-Jun-2024 09:37:52 UTC] Format slug: 
+[20-Jun-2024 09:59:35 UTC] PHP Parse error:  syntax error, unexpected token "echo" in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\functions.php on line 132
+[20-Jun-2024 10:02:30 UTC] Categorie: null
+[20-Jun-2024 10:02:30 UTC] Format: null
+[20-Jun-2024 10:17:36 UTC] Categorie: null
+[20-Jun-2024 10:17:36 UTC] Format: null
+[20-Jun-2024 10:17:50 UTC] Categorie: 
+[20-Jun-2024 10:17:50 UTC] Format: 
+[20-Jun-2024 10:18:00 UTC] Categorie: 
+[20-Jun-2024 10:18:00 UTC] Format: 
+[20-Jun-2024 10:18:05 UTC] Categorie: 
+[20-Jun-2024 10:18:05 UTC] Format: 
+[20-Jun-2024 10:18:30 UTC] Categorie: null
+[20-Jun-2024 10:18:30 UTC] Format: null
+[20-Jun-2024 12:11:08 UTC] Categorie: null
+[20-Jun-2024 12:11:08 UTC] Format: null
+[20-Jun-2024 12:11:28 UTC] Categorie: null
+[20-Jun-2024 12:11:28 UTC] Format: null
+[20-Jun-2024 12:17:35 UTC] Categorie: null
+[20-Jun-2024 12:17:35 UTC] Format: null
+[20-Jun-2024 12:36:56 UTC] Categorie: 
+[20-Jun-2024 12:36:56 UTC] Format: 
+[21-Jun-2024 18:33:18 UTC] Categorie: 
+[21-Jun-2024 18:33:18 UTC] Format: 
+[21-Jun-2024 18:47:58 UTC] Categorie: 
+[21-Jun-2024 18:47:58 UTC] Format: 
+[21-Jun-2024 18:52:17 UTC] Categorie: 
+[21-Jun-2024 18:52:17 UTC] Format: 
+[21-Jun-2024 18:55:56 UTC] Categorie: 
+[21-Jun-2024 18:55:56 UTC] Format: 
+[21-Jun-2024 18:56:17 UTC] Categorie: 
+[21-Jun-2024 18:56:17 UTC] Format: 
+[21-Jun-2024 18:56:22 UTC] Categorie: 
+[21-Jun-2024 18:56:22 UTC] Format: 
+[21-Jun-2024 18:56:30 UTC] Categorie: 
+[21-Jun-2024 18:56:30 UTC] Format: 
+[21-Jun-2024 18:56:37 UTC] Categorie: 
+[21-Jun-2024 18:56:37 UTC] Format: 
+[21-Jun-2024 18:56:45 UTC] Categorie: 
+[21-Jun-2024 18:56:45 UTC] Format: 
+[21-Jun-2024 18:56:57 UTC] Categorie: 
+[21-Jun-2024 18:56:57 UTC] Format: 
+[21-Jun-2024 18:57:15 UTC] Categorie: 
+[21-Jun-2024 18:57:15 UTC] Format: 
+[21-Jun-2024 18:57:25 UTC] Categorie: 
+[21-Jun-2024 18:57:25 UTC] Format: 
+[21-Jun-2024 18:57:29 UTC] Categorie: 
+[21-Jun-2024 18:57:29 UTC] Format: 
+[21-Jun-2024 18:57:32 UTC] Categorie: 
+[21-Jun-2024 18:57:32 UTC] Format: 
+[21-Jun-2024 18:57:40 UTC] Categorie: 
+[21-Jun-2024 18:57:40 UTC] Format: 
+[21-Jun-2024 21:18:28 UTC] Categorie: 
+[21-Jun-2024 21:18:28 UTC] Format: 
+[21-Jun-2024 21:24:58 UTC] Categorie: 
+[21-Jun-2024 21:24:58 UTC] Format: 
+[21-Jun-2024 21:29:07 UTC] Categorie: 
+[21-Jun-2024 21:29:07 UTC] Format: 
+[21-Jun-2024 21:29:19 UTC] Categorie: 
+[21-Jun-2024 21:29:19 UTC] Format: 
+[21-Jun-2024 21:29:31 UTC] Categorie: 
+[21-Jun-2024 21:29:31 UTC] Format: 
+[21-Jun-2024 21:29:49 UTC] Categorie: 
+[21-Jun-2024 21:29:49 UTC] Format: 
+[21-Jun-2024 21:30:23 UTC] Categorie: 
+[21-Jun-2024 21:30:23 UTC] Format: 
+[21-Jun-2024 21:30:30 UTC] Categorie: 
+[21-Jun-2024 21:30:30 UTC] Format: 
+[21-Jun-2024 21:30:41 UTC] Categorie: 
+[21-Jun-2024 21:30:41 UTC] Format: 
+[21-Jun-2024 21:30:59 UTC] Categorie: 
+[21-Jun-2024 21:30:59 UTC] Format: 
+[21-Jun-2024 21:31:17 UTC] Categorie: 
+[21-Jun-2024 21:31:17 UTC] Format: 
+[21-Jun-2024 21:32:37 UTC] Categorie: 
+[21-Jun-2024 21:32:37 UTC] Format: 
+[21-Jun-2024 21:32:41 UTC] Categorie: 
+[21-Jun-2024 21:32:41 UTC] Format: 
+[21-Jun-2024 21:32:54 UTC] Categorie: 
+[21-Jun-2024 21:32:54 UTC] Format: 
+[21-Jun-2024 21:33:07 UTC] Categorie: 
+[21-Jun-2024 21:33:07 UTC] Format: 
+[21-Jun-2024 21:33:10 UTC] Categorie: 
+[21-Jun-2024 21:33:10 UTC] Format: 
+[21-Jun-2024 21:33:15 UTC] Categorie: 
+[21-Jun-2024 21:33:15 UTC] Format: 
+[21-Jun-2024 21:33:22 UTC] Categorie: 
+[21-Jun-2024 21:33:22 UTC] Format: 
+[21-Jun-2024 21:33:33 UTC] Categorie: 
+[21-Jun-2024 21:33:33 UTC] Format: 
+[21-Jun-2024 21:35:39 UTC] Categorie: 
+[21-Jun-2024 21:35:39 UTC] Format: 
+[21-Jun-2024 21:35:44 UTC] Categorie: 
+[21-Jun-2024 21:35:44 UTC] Format: 
+[21-Jun-2024 21:35:47 UTC] Categorie: 
+[21-Jun-2024 21:35:47 UTC] Format: 
+[21-Jun-2024 21:35:50 UTC] Categorie: 
+[21-Jun-2024 21:35:50 UTC] Format: 
+[21-Jun-2024 21:35:53 UTC] Categorie: 
+[21-Jun-2024 21:35:53 UTC] Format: 
+[21-Jun-2024 21:36:02 UTC] Categorie: 
+[21-Jun-2024 21:36:02 UTC] Format: 
+[21-Jun-2024 21:36:06 UTC] Categorie: 
+[21-Jun-2024 21:36:06 UTC] Format: 
+[21-Jun-2024 21:36:09 UTC] Categorie: 
+[21-Jun-2024 21:36:09 UTC] Format: 
+[21-Jun-2024 21:36:13 UTC] Categorie: 
+[21-Jun-2024 21:36:13 UTC] Format: 
+[21-Jun-2024 21:36:18 UTC] Categorie: 
+[21-Jun-2024 21:36:18 UTC] Format: 
+[21-Jun-2024 21:39:09 UTC] Categorie: 
+[21-Jun-2024 21:39:09 UTC] Format: 
+[21-Jun-2024 21:39:14 UTC] Categorie: 
+[21-Jun-2024 21:39:14 UTC] Format: 
+[21-Jun-2024 21:39:18 UTC] Categorie: 
+[21-Jun-2024 21:39:18 UTC] Format: 
+[21-Jun-2024 21:39:39 UTC] Categorie: 
+[21-Jun-2024 21:39:39 UTC] Format: 
+[21-Jun-2024 21:39:46 UTC] Categorie: 
+[21-Jun-2024 21:39:46 UTC] Format: 
+[21-Jun-2024 21:40:08 UTC] Categorie: 
+[21-Jun-2024 21:40:08 UTC] Format: 
+[21-Jun-2024 21:40:20 UTC] Categorie: 
+[21-Jun-2024 21:40:20 UTC] Format: 
+[21-Jun-2024 21:40:33 UTC] Categorie: 
+[21-Jun-2024 21:40:33 UTC] Format: 
+[22-Jun-2024 11:52:46 UTC] Categorie: 
+[22-Jun-2024 11:52:46 UTC] Format: 
+[23-Jun-2024 16:23:48 UTC] Erreur d’événement de replanification de tâche pour le crochet wp_privacy_delete_old_export_files. Code d’erreur : could_not_set. Message d’erreur : La liste des évènements planifiés n’a pas pu être sauvegardée.. Données : {"schedule":"hourly","args":[],"interval":3600}
+[23-Jun-2024 16:23:53 UTC] Categorie: 
+[23-Jun-2024 16:23:53 UTC] Format: 
+[23-Jun-2024 16:26:22 UTC] Categorie: 
+[23-Jun-2024 16:26:22 UTC] Format: 
+[23-Jun-2024 16:29:57 UTC] Categorie: 
+[23-Jun-2024 16:29:57 UTC] Format: 
+[23-Jun-2024 16:30:49 UTC] Categorie: 
+[23-Jun-2024 16:30:49 UTC] Format: 
+[23-Jun-2024 16:31:04 UTC] Categorie: 
+[23-Jun-2024 16:31:04 UTC] Format: 
+[23-Jun-2024 16:31:09 UTC] Categorie: 
+[23-Jun-2024 16:31:09 UTC] Format: 
+[23-Jun-2024 16:31:15 UTC] Categorie: 
+[23-Jun-2024 16:31:15 UTC] Format: 
+[23-Jun-2024 16:31:29 UTC] Categorie: 
+[23-Jun-2024 16:31:29 UTC] Format: 
+[23-Jun-2024 16:31:34 UTC] Categorie: 
+[23-Jun-2024 16:31:34 UTC] Format: 
+[23-Jun-2024 16:35:45 UTC] Categorie: 
+[23-Jun-2024 16:35:45 UTC] Format: 
+[23-Jun-2024 16:35:51 UTC] Categorie: 
+[23-Jun-2024 16:35:51 UTC] Format: 
+[23-Jun-2024 16:36:30 UTC] Categorie: 
+[23-Jun-2024 16:36:30 UTC] Format: 
+[23-Jun-2024 16:36:43 UTC] Categorie: null
+[23-Jun-2024 16:36:43 UTC] Format: null
+[23-Jun-2024 16:37:31 UTC] Categorie: null
+[23-Jun-2024 16:37:31 UTC] Format: null
+[23-Jun-2024 16:37:47 UTC] Categorie: 
+[23-Jun-2024 16:37:47 UTC] Format: 
+[23-Jun-2024 16:38:01 UTC] Categorie: 
+[23-Jun-2024 16:38:01 UTC] Format: 
+[23-Jun-2024 16:38:25 UTC] Categorie: 
+[23-Jun-2024 16:38:25 UTC] Format: 
+[23-Jun-2024 16:38:31 UTC] Categorie: 
+[23-Jun-2024 16:38:31 UTC] Format: 
+[23-Jun-2024 16:38:41 UTC] Categorie: 
+[23-Jun-2024 16:38:41 UTC] Format: 
+[23-Jun-2024 16:39:25 UTC] Categorie: 
+[23-Jun-2024 16:39:25 UTC] Format: 
+[23-Jun-2024 16:47:33 UTC] Categorie: 
+[23-Jun-2024 16:47:33 UTC] Format: 
+[23-Jun-2024 16:47:36 UTC] Categorie: 
+[23-Jun-2024 16:47:36 UTC] Format: 
+[23-Jun-2024 16:47:43 UTC] Categorie: 
+[23-Jun-2024 16:47:43 UTC] Format: 
+[23-Jun-2024 16:47:51 UTC] Categorie: 
+[23-Jun-2024 16:47:51 UTC] Format: 
+[23-Jun-2024 16:47:57 UTC] Categorie: 
+[23-Jun-2024 16:47:57 UTC] Format: 
+[23-Jun-2024 16:48:19 UTC] Categorie: 
+[23-Jun-2024 16:48:19 UTC] Format: 
+[23-Jun-2024 16:48:28 UTC] Categorie: 
+[23-Jun-2024 16:48:28 UTC] Format: 
+[23-Jun-2024 16:49:37 UTC] Categorie: 
+[23-Jun-2024 16:49:37 UTC] Format: 
+[23-Jun-2024 16:49:41 UTC] Categorie: 
+[23-Jun-2024 16:49:41 UTC] Format: 
+[23-Jun-2024 16:50:17 UTC] Categorie: 
+[23-Jun-2024 16:50:17 UTC] Format: 
+[23-Jun-2024 16:52:54 UTC] Categorie: 
+[23-Jun-2024 16:52:54 UTC] Format: 
+[23-Jun-2024 16:53:07 UTC] Categorie: 
+[23-Jun-2024 16:53:07 UTC] Format: 
+[23-Jun-2024 16:53:43 UTC] Categorie: 
+[23-Jun-2024 16:53:43 UTC] Format: 
+[23-Jun-2024 16:54:18 UTC] Categorie: 
+[23-Jun-2024 16:54:18 UTC] Format: 
+[23-Jun-2024 17:21:04 UTC] PHP Parse error:  Unmatched '}' in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\functions.php on line 167
+[23-Jun-2024 17:21:04 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\motaphoto\wp-includes\class-wp-recovery-mode-email-service.php on line 367
+[23-Jun-2024 17:21:04 UTC] PHP Warning:  Trying to access array offset on value of type bool in C:\xampp\htdocs\motaphoto\wp-includes\class-wp-recovery-mode-email-service.php on line 368
+[23-Jun-2024 17:21:55 UTC] Categorie: null
+[23-Jun-2024 17:21:55 UTC] Format: null
+[23-Jun-2024 17:24:07 UTC] Categorie: null
+[23-Jun-2024 17:24:07 UTC] Format: null
+[23-Jun-2024 17:25:47 UTC] PHP Parse error:  syntax error, unexpected token "echo" in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\functions.php on line 129
+[23-Jun-2024 17:26:37 UTC] PHP Parse error:  syntax error, unexpected token "echo" in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\functions.php on line 129
+[23-Jun-2024 17:27:12 UTC] Categorie: null
+[23-Jun-2024 17:27:12 UTC] Format: null
+[24-Jun-2024 13:04:09 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée in C:\xampp\htdocs\motaphoto\wp-includes\class-wpdb.php on line 1987
+[24-Jun-2024 13:53:25 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "motaphotos_enqueue_assets" not found or invalid function name in C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\xampp\htdocs\motaphoto\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\xampp\htdocs\motaphoto\wp-includes\script-loader.php(2265): do_action('wp_enqueue_scri...')
+#3 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(324): wp_enqueue_scripts('')
+#4 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#5 C:\xampp\htdocs\motaphoto\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\motaphoto\wp-includes\general-template.php(3050): do_action('wp_head')
+#7 C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\header.php(7): wp_head()
+#8 C:\xampp\htdocs\motaphoto\wp-includes\template.php(810): require_once('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\motaphoto\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', true, Array)
+#10 C:\xampp\htdocs\motaphoto\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#11 C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\single-photo.php(1): get_header()
+#12 C:\xampp\htdocs\motaphoto\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#13 C:\xampp\htdocs\motaphoto\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#14 C:\xampp\htdocs\motaphoto\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php on line 324
+[24-Jun-2024 13:54:10 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "motaphotos_enqueue_assets" not found or invalid function name in C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php:324
+Stack trace:
+#0 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 C:\xampp\htdocs\motaphoto\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#2 C:\xampp\htdocs\motaphoto\wp-includes\script-loader.php(2265): do_action('wp_enqueue_scri...')
+#3 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(324): wp_enqueue_scripts('')
+#4 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#5 C:\xampp\htdocs\motaphoto\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#6 C:\xampp\htdocs\motaphoto\wp-includes\general-template.php(3050): do_action('wp_head')
+#7 C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\header.php(7): wp_head()
+#8 C:\xampp\htdocs\motaphoto\wp-includes\template.php(810): require_once('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\motaphoto\wp-includes\template.php(745): load_template('C:\\xampp\\htdocs...', true, Array)
+#10 C:\xampp\htdocs\motaphoto\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#11 C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\single-photo.php(1): get_header()
+#12 C:\xampp\htdocs\motaphoto\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#13 C:\xampp\htdocs\motaphoto\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#14 C:\xampp\htdocs\motaphoto\index.php(17): require('C:\\xampp\\htdocs...')
+#15 {main}
+  thrown in C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php on line 324
+[25-Jun-2024 20:32:22 UTC] PHP Warning:  Attempt to read property "title" on null in C:\xampp\htdocs\motaphoto\wp-includes\class-wp-customize-widgets.php on line 905
+[26-Jun-2024 12:25:16 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\functions.php on line 152
+[26-Jun-2024 12:25:37 UTC] single_post called
+[26-Jun-2024 12:25:37 UTC] posts_per_page: 2
+[26-Jun-2024 12:25:37 UTC] categorie_slug: concert
+[26-Jun-2024 12:25:37 UTC] Query args: Array
+(
+    [post_type] => photo
+    [posts_per_page] => 2
+    [post__not_in] => Array
+        (
+            [0] => 
+        )
+
+    [tax_query] => Array
+        (
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => concert
+                )
+
+        )
+
+    [orderby] => rand
+)
+
+[26-Jun-2024 12:26:29 UTC] single_post called
+[26-Jun-2024 12:26:29 UTC] posts_per_page: 2
+[26-Jun-2024 12:26:29 UTC] categorie_slug: concert
+[26-Jun-2024 12:26:29 UTC] Query args: Array
+(
+    [post_type] => photo
+    [posts_per_page] => 2
+    [post__not_in] => Array
+        (
+            [0] => 
+        )
+
+    [tax_query] => Array
+        (
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => concert
+                )
+
+        )
+
+    [orderby] => rand
+)
+
+[26-Jun-2024 12:26:49 UTC] single_post
+[26-Jun-2024 12:26:49 UTC] posts_per_page: 2
+[26-Jun-2024 12:26:49 UTC] categorie_slug: concert
+[26-Jun-2024 12:26:49 UTC] Query args: Array
+(
+    [post_type] => photo
+    [posts_per_page] => 2
+    [post__not_in] => Array
+        (
+            [0] => 
+        )
+
+    [tax_query] => Array
+        (
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => concert
+                )
+
+        )
+
+    [orderby] => rand
+)
+
+[26-Jun-2024 12:26:57 UTC] single_post
+[26-Jun-2024 12:26:57 UTC] posts_per_page: 2
+[26-Jun-2024 12:26:57 UTC] categorie_slug: concert
+[26-Jun-2024 12:26:57 UTC] Query args: Array
+(
+    [post_type] => photo
+    [posts_per_page] => 2
+    [post__not_in] => Array
+        (
+            [0] => 
+        )
+
+    [tax_query] => Array
+        (
+            [0] => Array
+                (
+                    [taxonomy] => categorie
+                    [field] => slug
+                    [terms] => concert
+                )
+
+        )
+
+    [orderby] => rand
+)
+
+[26-Jun-2024 12:29:48 UTC] single_post called
+[26-Jun-2024 12:35:28 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\functions.php on line 153

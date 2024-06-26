@@ -31,7 +31,7 @@
     font-weight: 400;
     line-height: 58px;
     text-align: left;
-    width: 40%;
+    width: 45%;
     margin-bottom: auto;
 }
 
@@ -103,59 +103,66 @@
 }
 
 .bouton:hover {
-    background: #C0C0C0; /* Changement de la couleur de fond au survol */
-    border-color: #A0A0A0; /* Changement de la couleur de la bordure au survol */
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1); /* Augmenter l'ombre au survol */
-    transform: scale(1.05); /* Agrandir légèrement le bouton au survol */
+    background: #C0C0C0; 
+    border-color: #A0A0A0; 
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1); 
+    transform: scale(1.05); 
 }
 
 .miniaturestyle {
-    height: 71px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -50px;
-    margin-left: 300px;
+    margin-top: -40px;
+    margin-left: 235px;
+}
 
-}
-    
-.miniaturestyle .preview {
-    width: 78px;
-    height: 50%;
-    margin: auto 0 auto auto;
-}
-    
-.miniaturestyle .preview img {
-    width: 81px;
-    height: 71px;
-    top: 1461px;
-    left: 6038px;
-    margin-top: -10px;
-    margin-left: -3px;
-}
-    
-.miniaturestyle .preview .previous-image {
-    margin-top: 38%;
-}
-    
-.miniaturestyle.preview .next-image {
-    margin-top: -38%;
-}
-    
 .miniaturestyle .fleches {
     width: 85px;
     display: flex;
     justify-content: space-between;
-    position: absolute;
+    position: relative;
     margin-top: 100px;
-   
+    margin-left: 60px;
 }
-    
+
 .miniaturestyle .fleches .fleche {
     width: 25px;
     cursor: pointer;
-
 }
+
+.fleches {
+    position: relative;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+}
+
+.photo-preview {
+    display: none;
+    position: absolute;
+    margin-left: 75px;
+    margin-top: -75px;
+    transform: translateX(-50%);
+    width: 150px; /* Ajustez la taille souhaitée */
+    z-index: 10; /* S'assurer que la preview est au-dessus des autres éléments */
+}
+
+.photo-preview img {
+    width: 81px;
+    height: 71px;
+    object-fit: cover;
+}
+
+/* Afficher la prévisualisation au survol des liens */
+.nav-link:hover + .photo-preview,
+.photo-preview:hover {
+    display: block;
+}
+
+
 .recommandations{
     display: flex;
     flex-direction: column;
@@ -167,22 +174,28 @@
     display: flex;
     margin-top: 30px;
     gap: 16%;
-    margin-bottom: 30px;
+    margin-bottom: 90px;
+    
 }
 .recommandations h3{
-    
-font-family: Space Mono;
-font-size: 18px;
-font-weight: 400;
-line-height: 26.66px;
-text-align: left;
-text-transform: uppercase;
-width: 229px;
-height: 27px;
-top: 1158px;
-left: 145px;
-margin-top: 60px;
+    font-family: Space Mono;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 26.66px;
+    text-align: left;
+    text-transform: uppercase;
+    width: 229px;
+    height: 27px;
+    top: 1158px;
+    left: 145px;
+    margin-top: 60px;
+}
 
-
+.texte{
+font-family: Poppins;
+font-size: 14px;
+font-weight: 300;
+line-height: 21px;
+text-align: right;
 
 }

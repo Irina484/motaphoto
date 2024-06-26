@@ -9,10 +9,7 @@
     .header_logo {
       width: 138px;
       height: 9px;
-      top: 32px;
-      left: 40px;
-      gap: 0px;
-      opacity: 0px;
+      margin-left: 20px;
       
     }
     
@@ -49,9 +46,6 @@
    font-size: 27.59px;
    font-weight: 700;
    line-height: 40.86px;
-
-
-    
   }
   
   .modal {
@@ -116,5 +110,111 @@
       text-align: center;
       padding-bottom: 120px;
   }
-  }
-    
+  
+.post-content{
+display: flex;
+flex-direction: column-reverse;
+align-items: center;
+}
+
+.containerstyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.recommandations_images{
+  display: flex;
+  flex-direction: column;
+}
+.photo-post{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.miniaturestyle .fleches  {
+  display: none;
+}
+.miniaturestyle .preview img{
+  display: none;
+}
+.post-details{
+  margin-left: 50px;
+}
+
+.menu-button {
+ display: block;
+ cursor: pointer;
+ margin-right: 950px;
+  background-color: #fff;
+  border: none;
+}
+#main-menu {
+display: none;
+position: absolute;
+top: 12%; /* Place le menu de navigation sous l'icône burger */
+left: 0; /* Aligne le menu de navigation sur la gauche */
+width: 100%; /* Assure que le menu de navigation prend toute la largeur */
+height: 102%;
+background-color: #E00000; /* Ajoute un fond blanc */
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); /* Ajoute une ombre */
+z-index: 2; /* Assure que le menu de navigation est au-dessus du contenu */
+justify-content: center;
+text-align: center; /* Centre les éléments du menu */
+}
+
+
+#main-menu.hidden {
+  display: none; /* Masquer le menu de navigation par défaut sur les petits écrans */
+}
+
+#main-menu {
+  display: none; /* Masquer le menu par défaut */
+}
+
+#main-menu.visible {
+  display: block; /* Afficher le menu lorsque la classe 'visible' est ajoutée */
+}
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.entete{
+  display: flex;
+}
+#main-menu.visible {
+  display: block;
+}
+
+
+.main-navigation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  
+}
+#main-menu{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#main-menu a{
+  text-decoration: none;
+  color:white;
+  font-family: Space Mono;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23.7px;
+  text-align: left;
+
+  
+}
+#main-menu li{
+
+list-style: none;
+}
+
+}

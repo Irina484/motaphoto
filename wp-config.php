@@ -84,7 +84,18 @@ $table_prefix = 'wp_';
  *
  * @link https://fr.wordpress.org/support/article/debugging-in-wordpress/
  */
-define('WP_DEBUG', false);
+// Activer le mode débogage
+define('WP_DEBUG', true);
+
+// Enregistrer les erreurs dans un fichier log
+define('WP_DEBUG_LOG', true);
+
+// Désactiver l'affichage des erreurs à l'écran
+define('WP_DEBUG_DISPLAY', false);
+
+// Empêcher PHP d'afficher les erreurs directement à l'écran
+@ini_set('display_errors', 0);
+
 
 /* C’est tout, ne touchez pas à ce qui suit ! Bonne publication. */
 

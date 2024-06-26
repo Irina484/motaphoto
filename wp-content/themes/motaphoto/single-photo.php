@@ -68,104 +68,60 @@
   
 
     <!-- Navigation entre les photos et affichage des photos en miniature -->
-        <div class="miniaturestyle">
-    <!-- Récupération du post suivant et précédent pour afficher leur image au-dessus des flèches -->
-        <?php
-            $prevPost = get_previous_post();
-            $nextPost = get_next_post();
-            if (!empty($prevPost)) {
-                $prevThumbnail = get_the_post_thumbnail_url($prevPost->ID);
-                $prevLink = get_permalink($prevPost);
-            }    
-            if (!empty($nextPost)) {
-                $nextThumbnail = get_the_post_thumbnail_url($nextPost->ID);
-                $nextLink = get_permalink($nextPost);
-            }    
-        ?>
-        <div class="fleches">
-        <!-- Affichage de la flèche pour le post précédent contenant son URL -->
-        <?php if (!empty($prevPost)) { ?>
-            <a href="<?php echo $prevLink; ?>">
-                <img class="fleche fleche-gauche" src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow_left.png"
-                    alt="Flèche pointant vers la gauche" />
-            </a>
-        <?php } else { ?>
-            <img  class="fleche"
-                src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow_left.png" />
-        <?php } ?>
+    <div class="miniaturestyle">
+    <?php
+        $prevPost = get_previous_post();
+        $nextPost = get_next_post();
+
+        $prevThumbnail = !empty($prevPost) ? get_the_post_thumbnail_url($prevPost->ID) : '';
+        $prevLink = !empty($prevPost) ? get_permalink($prevPost) : '';
+
+        $nextThumbnail = !empty($nextPost) ? get_the_post_thumbnail_url($nextPost->ID) : '';
+        $nextLink = !empty($nextPost) ? get_permalink($nextPost) : '';
+    ?>
+    <div class="fleches">
+        <!-- Flèche pour le post précédent -->
+        <a href="<?php echo $prevLink; ?>" class="nav-link prev-link" data-thumbnail="<?php echo $prevThumbnail; ?>">
+            <img class="fleche <?php echo !empty($prevPost) ? 'fleche-gauche' : ''; ?>" src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow_test2.png"
+                alt="Flèche pointant vers la gauche" />
+        </a>
         
-        <!-- Affichage de la flèche pour le post suivant contenant son URL -->
-        <?php if (!empty($nextPost)) { ?>
-            <a href="<?php echo $nextLink; ?>">
-                <img class="fleche fleche-droite" src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow_right.png"
-                    alt="Flèche pointant vers la droite" />
-            </a>
-        <?php } else { ?>
-            <img class="fleche"
-                src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow_right.png" />
-        <?php } ?>
+        <!-- Zone de prévisualisation des photos -->
+        <div class="photo-preview">
+            <img src="" alt="Prévisualisation image" id="photo-preview-img">
+        </div>
+        
+        <!-- Flèche pour le post suivant -->
+        <a href="<?php echo $nextLink; ?>" class="nav-link next-link" data-thumbnail="<?php echo $nextThumbnail; ?>">
+            <img class="fleche <?php echo !empty($nextPost) ? 'fleche-droite' : ''; ?>" src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow_test.png"
+                alt="Flèche pointant vers la droite" />
+        </a>
     </div>
-
-    <!-- Image du post précédent -->
-    <?php if (!empty($prevPost)) { ?>
-        <div class="preview previous-preview">
-            <img class="previous-image" src="<?php echo $prevThumbnail; ?>" alt="Prévisualisation image précédente">
-        </div>
-    <?php } ?>
-
-    <!-- Image du post suivant -->
-    <?php if (!empty($nextPost)) { ?>
-        <div class="preview next-preview">
-            <img class="next-image" src="<?php echo $nextThumbnail; ?>" alt="Prévisualisation image suivante">
-        </div>
-    <?php } ?>
-        </div>
-        </div>
-    </section>
 </div>
+
+    </section>
+    
 <!-- Section liste des photos apparentées -->
 <section class="recommandations">
-	 <h3>Vous aimerez aussi</h3>
-	 <div class="recommandations_images ">
-		<!-- récupération des posts qui ont la même catégorie que le post courant -->
+    <h3>Vous aimerez aussi</h3>
+    <div class="recommandations_images">
         <?php
-$categories = get_the_term_list(get_the_ID(), 'categorie', '', ', ', '');
-if (!is_wp_error($categories)) {
-    $category_list = strip_tags($categories);
-    $term = get_term_by('name', $category_list, 'categorie');
+        $terms = get_the_terms(get_the_ID(), 'categorie');
 
-    if ($term) {
-        $categorie_slug = $term->slug;
+        if (!is_wp_error($terms) && !empty($terms)) {
+            $categorie_slug = $terms[0]->slug;
+        } else {
+            $categorie_slug = ''; // Valeur par défaut si aucun terme n'est trouvé
+        }
 
-        $args = array(
-            'post_type' => 'photo',
-            'post__not_in' => array($post->ID),
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'categorie',
-                    'field' => 'slug',
-                    'terms' => $categorie_slug,
-                ),
-            ),
-            'orderby' => 'rand',
-            'posts_per_page' => 2, // Afficher seulement 2 posts
-        );
-
-        $photos = get_posts($args);
-
-        if (!empty($photos)) {
-            foreach ($photos as $photo) {
-                setup_postdata($photo);
-                include 'templates-parts/photo_block.php';
-            }
-            wp_reset_postdata();
-        } 
-} else {
-    echo 'Aucune catégorie trouvée';
-}
-}
-?>
+        // Nombre de photos par page dynamique à récupérer 
+        $photos_per_page = get_option('photos_per_page_option', 2);
+        ?>
+        <input type="hidden" id="photos-per-page" value="<?php echo esc_attr($photos_per_page); ?>">
+        <input type="hidden" id="categorie-slug" value="<?php echo esc_attr($categorie_slug); ?>">
+    </div>
 </section>
+
 
 <?php get_footer(); ?>
 
