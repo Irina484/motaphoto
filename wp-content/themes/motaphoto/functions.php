@@ -1,4 +1,5 @@
 <?php
+
 // Ajouter automatiquement le titre du site dans l'en-tête du site
 add_theme_support( 'title-tag' );
 
@@ -8,6 +9,7 @@ add_theme_support( 'menus' );
 // Ajouter la prise en charge des images mises en avant
 add_theme_support( 'post-thumbnails' );
 
+require_once get_template_directory() . '/includes/ajax.php';
 
 
 // Chargement des fichiers css et js
@@ -85,7 +87,7 @@ function get_photo_url() {
 // Ajoutez une requête pour récupérer le contenu Photo //
 
 function motaphoto_photos() {
-    // Vérifiez et assignez les variables de POST
+    
     $categorie = isset($_POST['categorie']) ? sanitize_text_field($_POST['categorie']) : '';
     $format = isset($_POST['format']) ? sanitize_text_field($_POST['format']) : '';
     $ordre = isset($_POST['ordre']) ? sanitize_text_field($_POST['ordre']) : 'DESC';
@@ -143,7 +145,7 @@ function motaphoto_photos() {
 
     wp_reset_postdata();
 
-    wp_die(); // Terminer proprement la requête Ajax
+    wp_die();
 }
 add_action('wp_ajax_motaphoto_photos', 'motaphoto_photos');
 add_action('wp_ajax_nopriv_motaphoto_photos', 'motaphoto_photos');
@@ -151,47 +153,3 @@ add_action('wp_ajax_nopriv_motaphoto_photos', 'motaphoto_photos');
 
 
 
-add_action('wp_ajax_single_post', 'single_post');
-add_action('wp_ajax_nopriv_single_post', 'single_post');
-
-function single_post() {
-    check_ajax_referer('wp_rest', 'nonce');
-
-    if (isset($_POST['posts_per_page']) && isset($_POST['categorie_slug'])) {
-        $posts_per_page = intval($_POST['posts_per_page']);
-        $categorie_slug = sanitize_text_field($_POST['categorie_slug']);
-
-        // Logique pour récupérer les articles
-        $args = array(
-            'post_type' => 'photo',
-            'posts_per_page' => $posts_per_page,
-            'post__not_in' => array(get_the_ID()),
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'categorie',
-                    'field' => 'slug',
-                    'terms' => $categorie_slug,
-                ),
-            ),
-            'orderby' => 'rand',
-        );
-
-        $photos = get_posts($args);
-
-        ob_start();
-        if (!empty($photos)) {
-            foreach ($photos as $photo) {
-                setup_postdata($photo);
-                include 'templates-parts/photo_block.php';
-            }
-        } else {
-            echo '<p class="texte">Aucune image trouvée dans cette catégorie</p>';
-        }
-
-        $response = ob_get_clean();
-        echo $response; // Retourne le contenu HTML directement
-
-    }
-
-    wp_die();
-}

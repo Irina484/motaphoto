@@ -146,8 +146,9 @@
     margin-left: 75px;
     margin-top: -75px;
     transform: translateX(-50%);
-    width: 150px; /* Ajustez la taille souhaitée */
-    z-index: 10; /* S'assurer que la preview est au-dessus des autres éléments */
+    width: 150px; 
+    z-index: 10; 
+    text-align: center;
 }
 
 .photo-preview img {
@@ -156,12 +157,21 @@
     object-fit: cover;
 }
 
-/* Afficher la prévisualisation au survol des liens */
-.nav-link:hover + .photo-preview,
-.photo-preview:hover {
+.nav-link:hover ~ .photo-preview {
     display: block;
 }
 
+.preview-image {
+    display: none;
+}
+
+.nav-link.prev-link:hover ~ .photo-preview .prev-thumbnail {
+    display: block;
+}
+
+.nav-link.next-link:hover ~ .photo-preview .next-thumbnail {
+    display: block;
+}
 
 .recommandations{
     display: flex;
@@ -198,4 +208,62 @@ font-weight: 300;
 line-height: 21px;
 text-align: right;
 
+}
+
+/*test*/
+#lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#lightbox-container {
+    position: relative;
+    background: white;
+    padding: 20px;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#lightbox-image {
+    max-width: 100%;
+    max-height: 70vh;
+}
+
+#lightbox-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#lightbox-close, #lightbox-prev, #lightbox-next {
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+#lightbox-close {
+    top: 10px;
+    right: 10px;
+}
+
+#lightbox-prev {
+    left: 10px;
+}
+
+#lightbox-next {
+    right: 10px;
 }

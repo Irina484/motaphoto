@@ -125,17 +125,18 @@ jQuery(document).ready(function($) {
 });
 
 
-// Requête Ajax single-post // 
+// Requête Ajax single_photo // 
 jQuery(document).ready(function($) {
-    var photosPerPage = $('#photos-per-page').val();
-    var categorieSlug = $('#categorie-slug').val();
-
-    var data = new URLSearchParams({
-        action: 'single_post',
+    let photosPerPage = $('#photos-per-page').val();
+    let categorieSlug = $('#categorie-slug').val();
+    let data = new URLSearchParams({
+        action: 'single_photo',
         posts_per_page: photosPerPage,
         categorie_slug: categorieSlug,
-        nonce: motaphoto_ajax.nonce
+        security: motaphoto_ajax.nonce
     });
+
+    console.log(motaphoto_ajax.nonce);
 
     fetch(motaphoto_ajax.ajax_url, {
         method: 'POST',
@@ -148,28 +149,91 @@ jQuery(document).ready(function($) {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        return response.text(); // Récupérer le texte HTML directement
+        return response.json();
     })
     .then(data => {
-        var recommandationsImages = $('.recommandations_images');
-        recommandationsImages.html(data); // Insérer le contenu HTML dans .recommandations_images
+        if (data.success) {
+            let photos = data.data;
+            console.log(photos);
+
+            photos.forEach((photo, index) => {
+                // Création de l'élément de photo
+                let photoElement = document.createElement('div');
+                photoElement.classList.add('photo-post');
+                photoElement.innerHTML = `
+                    <div class="photo-container">
+                        <img class="img-photo"
+                            src="${photo.thumbnail}"
+                            alt="${photo.title}"
+                            data-index="${index}"
+                            data-ref="${photo.reference}"
+                            data-categorie="${photo.categories}"
+                        />
+                        <div class="photo-overlay">
+                            <div class="icon info-icon" title="Voir les informations"></div>
+                            <div class="icon fullscreen-icon" title="Afficher en plein écran"></div>
+                        </div>
+                    </div>
+                `;
+
+                // Ajout de la photo au DOM
+                document.querySelector('.recommandations_images').appendChild(photoElement);
+
+                // Attacher les événements de survol et de clic à la photo
+                attachHoverActions(photoElement, photo, index);
+            });
+
+            // Mise à jour des photos dans la lightbox
+            lightbox.setPhotos(photos);
+        } else {
+            console.error('Error:', data.data);
+        }
     })
     .catch(error => {
         console.error('Fetch error:', error);
     });
-});
 
-jQuery(document).ready(function($) {
-    $('.nav-link').hover(function() {
-        var thumbnail = $(this).data('thumbnail');
-        if (thumbnail) {
-            $('#photo-preview-img').attr('src', thumbnail);
-            $('.photo-preview').show();
-        } else {
-            $('.photo-preview').hide();
-        }
-    }, function() {
-        $('.photo-preview').hide();
-    });
-});
+    // Fonction pour attacher les événements de survol et de clic aux éléments de photo
+    function attachHoverActions(photoElement, photo, index) {
+        // Attacher un événement de clic à la photo pour ouvrir la lightbox
+        photoElement.querySelector('.img-photo').addEventListener('click', function() {
+            lightbox.openLightbox(index);
+        });
 
+        // Attacher un événement au survol de la photo pour afficher les icônes
+        photoElement.addEventListener('mouseenter', function() {
+            photoElement.querySelector('.photo-overlay').classList.add('show');
+        });
+
+        photoElement.addEventListener('mouseleave', function() {
+            photoElement.querySelector('.photo-overlay').classList.remove('show');
+        });
+
+        // Attacher un événement de clic à l'icône d'informations
+        photoElement.querySelector('.info-icon').addEventListener('click', function(event) {
+            event.stopPropagation(); // Empêche la propagation du clic à l'image parente
+            showPhotoInfo(photo);
+        });
+
+        // Attacher un événement de clic à l'icône de plein écran
+        photoElement.querySelector('.fullscreen-icon').addEventListener('click', function(event) {
+            event.stopPropagation(); // Empêche la propagation du clic à l'image parente
+            openFullScreen(photo);
+        });
+    }
+
+    // Fonction pour afficher les informations de la photo
+    function showPhotoInfo(photo) {
+        console.log(`Informations de la photo :`);
+        console.log(`Titre : ${photo.title}`);
+        console.log(`Référence : ${photo.reference}`);
+        console.log(`Catégories : ${photo.categories}`);
+    }
+
+    // Fonction pour ouvrir la photo en plein écran dans une lightbox
+    function openFullScreen(photo) {
+        console.log(`Affichage de la photo en plein écran :`);
+        console.log(`URL de la photo : ${photo.thumbnail}`);
+        // Ajoutez ici votre code pour ouvrir la lightbox en plein écran
+    }
+});

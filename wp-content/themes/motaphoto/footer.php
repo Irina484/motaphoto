@@ -1,5 +1,5 @@
 <?php get_template_part('templates-parts/modal-contact'); ?>
-
+<?php get_template_part('templates-parts/lightbox'); ?>
 <footer >
     <section class = "piedpage">
         <?php

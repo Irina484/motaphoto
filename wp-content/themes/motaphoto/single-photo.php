@@ -61,8 +61,8 @@
         endwhile; endif;
         ?>
     </section>
-    <section class="container2">
-        <div class="containerstyle">
+<section class="container2">
+    <div class="containerstyle">
 	        <p >Cette photo vous intéresse ?</p>
             <input class=" bouton contact-link" type="button" value="Contact">
   
@@ -81,25 +81,30 @@
     ?>
     <div class="fleches">
         <!-- Flèche pour le post précédent -->
-        <a href="<?php echo $prevLink; ?>" class="nav-link prev-link" data-thumbnail="<?php echo $prevThumbnail; ?>">
-            <img class="fleche <?php echo !empty($prevPost) ? 'fleche-gauche' : ''; ?>" src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow_test2.png"
+        <a href="<?php echo $prevLink; ?>" class="nav-link prev-link">
+            <img class="fleche <?php echo !empty($prevPost) ? 'fleche-gauche' : ''; ?>" src="<?php echo get_template_directory_uri(); ?>/assets/images/fleche_gauche.png"
                 alt="Flèche pointant vers la gauche" />
         </a>
         
-        <!-- Zone de prévisualisation des photos -->
-        <div class="photo-preview">
-            <img src="" alt="Prévisualisation image" id="photo-preview-img">
-        </div>
-        
         <!-- Flèche pour le post suivant -->
-        <a href="<?php echo $nextLink; ?>" class="nav-link next-link" data-thumbnail="<?php echo $nextThumbnail; ?>">
-            <img class="fleche <?php echo !empty($nextPost) ? 'fleche-droite' : ''; ?>" src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow_test.png"
+        <a href="<?php echo $nextLink; ?>" class="nav-link next-link">
+            <img class="fleche <?php echo !empty($nextPost) ? 'fleche-droite' : ''; ?>" src="<?php echo get_template_directory_uri(); ?>/assets/images/fleche_droit.png"
                 alt="Flèche pointant vers la droite" />
         </a>
+        
+        <!-- Zone de prévisualisation au centre -->
+        <div class="photo-preview">
+            <?php if (!empty($prevPost)) : ?>
+                <img class="preview-image prev-thumbnail" src="<?php echo $prevThumbnail; ?>" alt="Prévisualisation image précédente">
+            <?php endif; ?>
+            <?php if (!empty($nextPost)) : ?>
+                <img class="preview-image next-thumbnail" src="<?php echo $nextThumbnail; ?>" alt="Prévisualisation image suivante">
+            <?php endif; ?>
+        </div>
+        </div>
     </div>
-</div>
 
-    </section>
+</section>
     
 <!-- Section liste des photos apparentées -->
 <section class="recommandations">
@@ -114,10 +119,9 @@
             $categorie_slug = ''; // Valeur par défaut si aucun terme n'est trouvé
         }
 
-        // Nombre de photos par page dynamique à récupérer 
-        $photos_per_page = get_option('photos_per_page_option', 2);
+       
         ?>
-        <input type="hidden" id="photos-per-page" value="<?php echo esc_attr($photos_per_page); ?>">
+        <input type="hidden" id="photos-per-page" value="2">
         <input type="hidden" id="categorie-slug" value="<?php echo esc_attr($categorie_slug); ?>">
     </div>
 </section>

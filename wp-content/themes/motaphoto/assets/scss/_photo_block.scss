@@ -20,3 +20,72 @@
   .photo-post>div {
   display: inline;
   }
+
+  .photo-post {
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-post .photo-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-post .photo-container .img-photo {
+    display: block;
+   
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo-post .photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur de fond semi-transparente pour l'overlay */
+    opacity: 0; /* Initialement invisible */
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    justify-content: space-between; /* Aligner les icônes en utilisant l'espace disponible */
+    align-items: center;
+    padding: 10px; /* Ajouter un padding pour espacer les icônes */
+    box-sizing: border-box; /* Inclure le padding dans la taille totale */
+}
+
+.photo-post:hover .photo-overlay {
+    opacity: 1; /* Rendre l'overlay visible au survol */
+}
+.photo-post:hover .photo-overlay {
+  opacity: 1; /* Rendre l'overlay visible au survol */
+}
+
+.photo-post .photo-overlay .info-icon {
+   /* Ajustez la taille de l'icône selon vos besoins */
+  background-image: url('../images/oeil-icon.png'); /* Image de l'icône de l'œil */
+  background-size: cover; /* Ajuster la taille de l'image de fond pour couvrir l'espace */
+  background-repeat: no-repeat; /* Ne pas répéter l'image de fond */
+  cursor: pointer;
+  width: 46px;
+height: 31.2px;
+top: 231.4px;
+left: 255px;
+gap: 0px;
+opacity: 0px;
+margin-left: 250px;
+}
+
+.photo-post .photo-overlay .fullscreen-icon {
+ 
+  background-image: url('../images/fullscreen-icon.png'); /* Image de l'icône de plein écran */
+  background-size: cover; /* Ajuster la taille de l'image de fond pour couvrir l'espace */
+  background-repeat: no-repeat; /* Ne pas répéter l'image de fond */
+  cursor: pointer;
+  width: 34px;
+height: 34px;
+gap: 0px;
+border: 1px 0px 0px 0px;
+opacity: 0px;
+margin-top: -420px;
+margin-right: 10px;
+}
