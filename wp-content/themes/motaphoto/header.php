@@ -11,18 +11,21 @@
     
     <?php wp_body_open(); ?>
 <header>
-<section class="entete">
-    <div>
-        <a href="<?php echo home_url( '/' ); ?>">
-            <img class="header_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/Logo.png" alt="Logo NMota" >
-        </a>
-    </div>
-    <div>
-        <button class="menu-button" onclick="toggleMenu()">☰</button> <!-- Bouton principal pour ouvrir le menu -->
-             
-        <nav id="main-menu" role="navigation" aria-label="<?php _e('Menu principal', 'Motaphoto'); ?>" class="hidden">
-        <button class="close-button" onclick="toggleMenu()">✕</button> <!-- Utilisation d'un bouton pour l'icône de fermeture -->
-    </div>
+    <section class="entete">
+        <div>
+            <a href="<?php echo home_url( '/' ); ?>">
+                <img class="header_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/Logo.png" alt="Logo NMota" >
+            </a>
+        </div>
+        
+        <!-- Button Burger -->
+        <div class="burger-menu">
+            <button class="burger-button" aria-label="Toggle menu">
+                <span class="burger-icon">☰</span>
+                <span class="close-icon">✖</span>
+            </button>
+        </div>
+        
         <?php
         if ( has_nav_menu( 'main' ) ) {
             wp_nav_menu( array(
@@ -32,11 +35,18 @@
             ) );
         }
         ?>
-        
-    </nav>
-</section>
 
-
-
-</header> 
-
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <?php
+            if ( has_nav_menu( 'main' ) ) {
+                wp_nav_menu( array(
+                    'theme_location' => 'main',
+                    'menu_id'        => 'mobile-main-menu',
+                    'container_class' => 'mobile-main-navigation', // classe CSS pour customiser mon menu mobile
+                ) );
+            }
+            ?>
+        </div>
+    </section>
+</header>

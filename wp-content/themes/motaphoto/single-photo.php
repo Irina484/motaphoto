@@ -111,8 +111,9 @@
     <h3>Vous aimerez aussi</h3>
     <div class="recommandations_images">
         <?php
+        // Récupère les termes associés à l'article actuel dans la taxonomie 'categorie'
         $terms = get_the_terms(get_the_ID(), 'categorie');
-
+        // Vérifie s'il n'y a pas d'erreur et si des termes ont été trouvés
         if (!is_wp_error($terms) && !empty($terms)) {
             $categorie_slug = $terms[0]->slug;
         } else {

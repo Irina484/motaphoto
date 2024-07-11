@@ -1,5 +1,5 @@
 
-// Déclenché l'ouverture de la modale //
+// Déclenché l'ouverture de la modale de contact //
 document.addEventListener('DOMContentLoaded', function() {
     var contactLinks = document.querySelectorAll('.contact-link'); 
     var modal = document.getElementById('myModal');
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Fermer la modale lorsqu'on clique en dehors du contenu de la modale
+    // Fermer la modale de contact lorsqu'on clique en dehors du contenu de la modale
     window.addEventListener('click', function(event) {
         if (event.target == modal) {
             modal.style.display = 'none';
@@ -24,119 +24,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// menu burger //
-function toggleMenu() {
-    const navMenu = document.getElementById('main-menu');
-    navMenu.classList.toggle('visible');
-}
+// menu burger pour le responsive //
+document.addEventListener('DOMContentLoaded', function() {
+    const burgerButton = document.querySelector('.burger-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
 
-
-// Les flèches de navigation //
-(function($) {
-  $(document).ready(function () {
-      navigationPhotos($('.fleche-gauche'), $('.previous-image'));
-      navigationPhotos($('.fleche-droite'), $('.next-image'));
-
-      function navigationPhotos(arrow, image) {
-          arrow.hover(
-              function () {
-                  image.css('opacity', '1');
-              },
-              function () {
-                  image.css('opacity', '0');
-              }
-          );
-      }
-  });
-})(jQuery);
-
-// Requête Ajax front-page // 
-jQuery(document).ready(function($) {
-    // Fonction pour charger les photos
-    function chargerPhotos(categorie = '', format = '', ordre = 'DESC', paged = 1, chargerPlus = false) {
-        // Construire les données de la requête
-        const data = new URLSearchParams();
-        data.append('action', 'motaphoto_photos');
-        data.append('categorie', categorie);
-        data.append('format', format);
-        data.append('ordre', ordre);
-        data.append('paged', paged);
-
-        // Utiliser fetch pour faire la requête
-        fetch(motaphoto_ajax.ajax_url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'X-WP-Nonce': motaphoto_ajax.nonce
-            },
-            body: data
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.text();
-        })
-        .then(response => {
-            // Insérer la réponse dans #photo-container
-            if (chargerPlus) {
-                $('#photo-container').append(response);
-            } else {
-                $('#photo-container').html(response);
-            }
-        })
-        .catch(error => {
-            console.log('Error:', error);
-            // Afficher un message d'erreur à l'utilisateur
-            $('#photo-container').html('<p class="error-message">Erreur lors du chargement des photos. Veuillez réessayer.</p>');
-        });
-    }
-
-    // Fonction pour initialiser le chargement des photos avec les filtres actuels
-    function initChargementPhotos() {
-        chargerPhotos($('#select-categorie').val(), $('#select-format').val(), $('#select-ordre').val(), 1);
-    }
-
-    // Gérer les changements de sélection de catégorie
-    $('#select-categorie').on('change', function() {
-        initChargementPhotos();
+    burgerButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        burgerButton.classList.toggle('open');
     });
-
-    // Gérer les changements de sélection de format
-    $('#select-format').on('change', function() {
-        initChargementPhotos();
-    });
-
-    // Gérer les changements d'ordre de tri
-    $('#select-ordre').on('change', function() {
-        initChargementPhotos();
-    });
-
-    // Gérer le chargement de la page suivante
-    $('#load-more-button').on('click', function(e) {
-        e.preventDefault();
-        var nextPage = parseInt($(this).data('paged')) + 1;
-        chargerPhotos($('#select-categorie').val(), $('#select-format').val(), $('#select-ordre').val(), nextPage, true);
-        $(this).data('paged', nextPage);
-    });
-
-    // Charger les photos au chargement initial de la page
-    initChargementPhotos();
 });
 
 
-// Requête Ajax single_photo // 
+
+// Requête Ajax front-page // 
+
 jQuery(document).ready(function($) {
     let photosPerPage = $('#photos-per-page').val();
-    let categorieSlug = $('#categorie-slug').val();
+    let categorieSlug = $('#categorie-slug').val() || '';
+    let formatSlug = $('#format-slug').val() || '';
+    let page = 0;
+    let photosArray = []; // Tableau pour stocker les photos chargées
+
+    function photosPagin(reset = false) {
+        if (reset) {
+        page = 0;
+        photosArray = []; // Réinitialiser le tableau des photos
+        $('.photo_type').empty();
+    } else {
+        page = page + 1; // Incrémenter page de 1
+    }
+
     let data = new URLSearchParams({
-        action: 'single_photo',
+        action: 'frontpage_photo',
         posts_per_page: photosPerPage,
         categorie_slug: categorieSlug,
+        format_slug: formatSlug,
+        page: page,
         security: motaphoto_ajax.nonce
     });
-
-    console.log(motaphoto_ajax.nonce);
 
     fetch(motaphoto_ajax.ajax_url, {
         method: 'POST',
@@ -153,38 +79,171 @@ jQuery(document).ready(function($) {
     })
     .then(data => {
         if (data.success) {
-            let photos = data.data;
-            console.log(photos);
+           
+            photosArray = photosArray.concat(data.data); // Ajouter les nouvelles photos au tableau
+            generatePhotos(data.data);
+        } else {
+            console.error('Error:', data.data);
+        }
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+    });
+}
+    function generatePhotos(photos) {
+        const container = $('.photo_type');
 
-            photos.forEach((photo, index) => {
-                // Création de l'élément de photo
-                let photoElement = document.createElement('div');
-                photoElement.classList.add('photo-post');
-                photoElement.innerHTML = `
+        photos.forEach((photo, index) => {
+            const photoBlock = $(`
+                <div class="photo-post">
                     <div class="photo-container">
-                        <img class="img-photo"
-                            src="${photo.thumbnail}"
-                            alt="${photo.title}"
-                            data-index="${index}"
+                        <img class="img-photo" 
+                            src="${photo.thumbnail}" 
+                            alt="${photo.title}" 
                             data-ref="${photo.reference}"
-                            data-categorie="${photo.categories}"
-                        />
+                            data-categorie="${photo.categories}" />
                         <div class="photo-overlay">
-                            <div class="icon info-icon" title="Voir les informations"></div>
-                            <div class="icon fullscreen-icon" title="Afficher en plein écran"></div>
+                            <div class="info-icon">i</div>
+                            <div class="fullscreen-icon">⤢</div>
                         </div>
                     </div>
-                `;
+                </div>
+            `);
+            container.append(photoBlock);
 
-                // Ajout de la photo au DOM
-                document.querySelector('.recommandations_images').appendChild(photoElement);
+            // Attacher les effets de survol et autres événements
+            survolEffets(photoBlock[0], photo, index);
+        });
+    }
 
-                // Attacher les événements de survol et de clic à la photo
-                attachHoverActions(photoElement, photo, index);
-            });
+    function survolEffets(photoElement, photo, index) {
+        photoElement.querySelector('.img-photo').addEventListener('click', function() {
+            openLightbox(photo, index);
+        });
 
-            // Mise à jour des photos dans la lightbox
-            lightbox.setPhotos(photos);
+        photoElement.querySelector('.info-icon').addEventListener('click', function(event) {
+            event.stopPropagation();
+            showPhotoInfo(photo);
+        });
+
+        photoElement.querySelector('.fullscreen-icon').addEventListener('click', function(event) {
+            event.stopPropagation();
+            openLightbox(photo, index);
+        });
+    }
+
+    function showPhotoInfo(photo) {
+        window.location.href = photo.permalink; // Redirige vers la page de la photo
+    }
+
+    // Fonction pour ouvrir la photo en plein écran dans une lightbox
+    let currentPhotoIndex = 0;
+
+    function openLightbox(photo, index) {
+        currentPhotoIndex = index;
+
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImage = lightbox.querySelector('.lightbox-image');
+        const lightboxReference = lightbox.querySelector('.lightbox-reference');
+        const lightboxCategories = lightbox.querySelector('.lightbox-categories');
+
+        lightboxImage.src = photo.thumbnail;
+        lightboxImage.alt = photo.title;
+
+        lightboxReference.textContent = photo.reference;
+        lightboxCategories.textContent = photo.categories;
+
+        lightbox.classList.add('open');
+    }
+
+    function afficherPhotoPrecedente() {
+        if (currentPhotoIndex > 0) {
+            currentPhotoIndex--;
+            openLightbox(photosArray[currentPhotoIndex], currentPhotoIndex);
+        }
+    }
+
+    function afficherPhotoSuivante() {
+        if (currentPhotoIndex < photosArray.length - 1) {
+            currentPhotoIndex++;
+            openLightbox(photosArray[currentPhotoIndex], currentPhotoIndex);
+        }
+    }
+
+    document.querySelector('.lightbox-prev').addEventListener('click', afficherPhotoPrecedente);
+    document.querySelector('.lightbox-next').addEventListener('click', afficherPhotoSuivante);
+    document.querySelector('.lightbox-close').addEventListener('click', () => {
+        document.querySelector('.lightbox').classList.remove('open');
+    });
+
+    // Fermeture de la lightbox lorsqu'on clique en dehors du contenu
+    document.querySelector('.lightbox').addEventListener('click', (event) => {
+        if (event.target === event.currentTarget) {
+            event.currentTarget.classList.remove('open');
+        }
+    });
+
+    // Load initial photos
+    photosPagin(true);
+
+    // Load more photos on button click
+    $('#load-more-button').on('click', function() {
+        photosPagin();
+    });
+
+    // Filter photos by category
+    $('#select-categorie').on('change', function() {
+        categorieSlug = $(this).val();
+        $('#categorie-slug').val(categorieSlug); // Mise à jour de la valeur cachée
+        photosPagin(true);
+    });
+
+    // Filter photos by format
+    $('#select-format').on('change', function() {
+        formatSlug = $(this).val();
+        $('#format-slug').val(formatSlug); // Mise à jour de la valeur cachée
+        photosPagin(true);
+    });
+
+    // Sort photos
+    $('#select-ordre').on('change', function() {
+        orderBy = $(this).val();
+        photosPagin(true);
+    });
+});
+
+
+
+// Requête Ajax single_photo // 
+jQuery(document).ready(function($) {
+    let photosPerPage = $('#photos-per-page').val();
+    let categorieSlug = $('#categorie-slug').val();
+    let photosArray = []; // Initialisation globale
+
+    let data = new URLSearchParams({
+        action: 'single_photo',
+        posts_per_page: photosPerPage,
+        categorie_slug: categorieSlug,
+        security: motaphoto_ajax.nonce
+    });
+
+    fetch(motaphoto_ajax.ajax_url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: data
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            photosArray = data.data; // Mise à jour avec les photos récupérées
+            generatePhotos(photosArray);
         } else {
             console.error('Error:', data.data);
         }
@@ -193,47 +252,99 @@ jQuery(document).ready(function($) {
         console.error('Fetch error:', error);
     });
 
-    // Fonction pour attacher les événements de survol et de clic aux éléments de photo
-    function attachHoverActions(photoElement, photo, index) {
-        // Attacher un événement de clic à la photo pour ouvrir la lightbox
+    function generatePhotos(photos) {
+        const container = $('.recommandations_images');
+        container.empty();
+
+        photos.forEach((photo, index) => {
+            const photoBlock = $(`
+                <div class="photo-post">
+                    <div class="photo-container">
+                        <img class="img-photo" 
+                            src="${photo.thumbnail}" 
+                            alt="${photo.title}" 
+                            data-ref="${photo.reference}"
+                            data-categorie="${photo.categories}" />
+                        <div class="photo-overlay">
+                            <div class="info-icon">i</div>
+                            <div class="fullscreen-icon">⤢</div>
+                        </div>
+                    </div>
+                </div>
+            `);
+            container.append(photoBlock);
+
+            // Attacher les effets de survol et autres événements
+            survolEffets(photoBlock[0], photo, index);
+        });
+    }
+
+    function survolEffets(photoElement, photo, index) {
         photoElement.querySelector('.img-photo').addEventListener('click', function() {
-            lightbox.openLightbox(index);
+            openLightbox(photo, index);
         });
 
-        // Attacher un événement au survol de la photo pour afficher les icônes
-        photoElement.addEventListener('mouseenter', function() {
-            photoElement.querySelector('.photo-overlay').classList.add('show');
-        });
-
-        photoElement.addEventListener('mouseleave', function() {
-            photoElement.querySelector('.photo-overlay').classList.remove('show');
-        });
-
-        // Attacher un événement de clic à l'icône d'informations
         photoElement.querySelector('.info-icon').addEventListener('click', function(event) {
-            event.stopPropagation(); // Empêche la propagation du clic à l'image parente
+            event.stopPropagation();
             showPhotoInfo(photo);
         });
 
-        // Attacher un événement de clic à l'icône de plein écran
         photoElement.querySelector('.fullscreen-icon').addEventListener('click', function(event) {
-            event.stopPropagation(); // Empêche la propagation du clic à l'image parente
-            openFullScreen(photo);
+            event.stopPropagation();
+            openLightbox(photo, index);
         });
     }
 
-    // Fonction pour afficher les informations de la photo
     function showPhotoInfo(photo) {
-        console.log(`Informations de la photo :`);
-        console.log(`Titre : ${photo.title}`);
-        console.log(`Référence : ${photo.reference}`);
-        console.log(`Catégories : ${photo.categories}`);
+        window.location.href = photo.permalink; // Redirige vers la page de la photo
     }
 
     // Fonction pour ouvrir la photo en plein écran dans une lightbox
-    function openFullScreen(photo) {
-        console.log(`Affichage de la photo en plein écran :`);
-        console.log(`URL de la photo : ${photo.thumbnail}`);
-        // Ajoutez ici votre code pour ouvrir la lightbox en plein écran
+    let currentPhotoIndex = 0;
+
+    function openLightbox(photo, index) {
+        currentPhotoIndex = index;
+
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImage = lightbox.querySelector('.lightbox-image');
+        const lightboxReference = lightbox.querySelector('.lightbox-reference');
+        const lightboxCategories = lightbox.querySelector('.lightbox-categories');
+
+        lightboxImage.src = photo.thumbnail;
+        lightboxImage.alt = photo.title;
+
+        lightboxReference.textContent = `${photo.reference}`;
+        lightboxCategories.textContent = `${photo.categories}`;
+
+        lightbox.classList.add('open');
     }
+
+    function afficherPhotoPrecedente() {
+        if (currentPhotoIndex > 0) {
+            currentPhotoIndex--;
+            console.log("Photo précédente:", currentPhotoIndex);
+            openLightbox(photosArray[currentPhotoIndex], currentPhotoIndex);
+        }
+    }
+
+    function afficherPhotoSuivante() {
+        if (currentPhotoIndex < photosArray.length - 1) {
+            currentPhotoIndex++;
+            console.log("Photo suivante:", currentPhotoIndex);
+            openLightbox(photosArray[currentPhotoIndex], currentPhotoIndex);
+        }
+    }
+
+    document.querySelector('.lightbox-prev').addEventListener('click', afficherPhotoPrecedente);
+    document.querySelector('.lightbox-next').addEventListener('click', afficherPhotoSuivante);
+    document.querySelector('.lightbox-close').addEventListener('click', () => {
+        document.querySelector('.lightbox').classList.remove('open');
+    });
+
+    // Fermeture de la lightbox lorsqu'on clique en dehors du contenu
+    document.querySelector('.lightbox').addEventListener('click', (event) => {
+        if (event.target === event.currentTarget) {
+            event.currentTarget.classList.remove('open');
+        }
+    });
 });

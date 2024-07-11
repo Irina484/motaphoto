@@ -84,71 +84,8 @@ function get_photo_url() {
 }
 
 
-// Ajoutez une requête pour récupérer le contenu Photo //
-
-function motaphoto_photos() {
-    
-    $categorie = isset($_POST['categorie']) ? sanitize_text_field($_POST['categorie']) : '';
-    $format = isset($_POST['format']) ? sanitize_text_field($_POST['format']) : '';
-    $ordre = isset($_POST['ordre']) ? sanitize_text_field($_POST['ordre']) : 'DESC';
-    $paged = isset($_POST['paged']) ? intval($_POST['paged']) : 1;
-
-    // Arguments de la requête WP_Query
-    $args = array(
-        'post_type' => 'photos',
-        'posts_per_page' => get_option('posts_per_page'),
-        'order' => $ordre,
-        'orderby' => 'date',
-        'post_status' => 'publish',
-        'paged' => $paged,
-        'tax_query' => array(
-            'relation' => 'AND', // Par défaut, nous définissons la relation comme AND
-        ),
-    );
-
-    // Filtre par catégorie
-    if (!empty($categorie)) {
-        $args['tax_query'][] = array(
-            'taxonomy' => 'category',
-            'field' => 'slug',
-            'terms' => $categorie,
-        );
-    }
-
-    // Filtre par format
-    if (!empty($format)) {
-        $args['tax_query'][] = array(
-            'taxonomy' => 'post_format',
-            'field' => 'slug',
-            'terms' => $format,
-        );
-    }
 
 
-    // Affichez les arguments pour déboguer dans la réponse Ajax
-    echo '<pre>';
-    var_dump($args);
-    echo '</pre>';
-
-    // Exécuter la requête WP_Query
-    $photos = new WP_Query($args);
-
-    // Boucle pour afficher les résultats
-    if ($photos->have_posts()) {
-        while ($photos->have_posts()) {
-            $photos->the_post();
-            get_template_part('template-parts/photo_block');
-        }
-    } else {
-        echo 'No posts found';
-    }
-
-    wp_reset_postdata();
-
-    wp_die();
-}
-add_action('wp_ajax_motaphoto_photos', 'motaphoto_photos');
-add_action('wp_ajax_nopriv_motaphoto_photos', 'motaphoto_photos');
 
 
 

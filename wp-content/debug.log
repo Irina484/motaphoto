@@ -1129,3 +1129,43 @@ Stack trace:
 [01-Jul-2024 08:43:56 UTC] ajax.php included successfully
 [01-Jul-2024 08:43:56 UTC] ajax.php included successfully
 [01-Jul-2024 08:43:56 UTC] ajax.php included successfully
+[06-Jul-2024 14:32:03 UTC] PHP Fatal error:  Cannot redeclare single_photo() (previously declared in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php:7) in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php on line 118
+[06-Jul-2024 14:34:11 UTC] PHP Fatal error:  Cannot redeclare single_photo() (previously declared in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php:7) in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php on line 118
+[06-Jul-2024 15:04:20 UTC] posts_per_page: 8
+[06-Jul-2024 15:08:13 UTC] posts_per_page: 8
+[06-Jul-2024 15:08:49 UTC] posts_per_page: 8
+[06-Jul-2024 15:10:09 UTC] posts_per_page: 8
+[06-Jul-2024 15:23:22 UTC] posts_per_page: 8
+[06-Jul-2024 15:24:03 UTC] posts_per_page: 8
+[06-Jul-2024 18:02:17 UTC] posts_per_page: 8
+[07-Jul-2024 08:21:56 UTC] posts_per_page: 8
+[07-Jul-2024 08:21:56 UTC] posts_per_page: 8
+[07-Jul-2024 08:21:56 UTC] posts_per_page: 8
+[08-Jul-2024 12:28:43 UTC] PHP Fatal error:  Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, string given in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php:87
+Stack trace:
+#0 C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php(87): array_map('intval', '')
+#1 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(324): frontpage_photo('')
+#2 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#3 C:\xampp\htdocs\motaphoto\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 C:\xampp\htdocs\motaphoto\wp-admin\admin-ajax.php(192): do_action('wp_ajax_frontpa...')
+#5 {main}
+  thrown in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php on line 87
+[08-Jul-2024 12:29:04 UTC] PHP Fatal error:  Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, string given in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php:87
+Stack trace:
+#0 C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php(87): array_map('intval', '')
+#1 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(324): frontpage_photo('')
+#2 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#3 C:\xampp\htdocs\motaphoto\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 C:\xampp\htdocs\motaphoto\wp-admin\admin-ajax.php(192): do_action('wp_ajax_frontpa...')
+#5 {main}
+  thrown in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php on line 87
+[08-Jul-2024 12:29:43 UTC] PHP Fatal error:  Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, string given in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php:87
+Stack trace:
+#0 C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php(87): array_map('intval', '')
+#1 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(324): frontpage_photo('')
+#2 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#3 C:\xampp\htdocs\motaphoto\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 C:\xampp\htdocs\motaphoto\wp-admin\admin-ajax.php(192): do_action('wp_ajax_frontpa...')
+#5 {main}
+  thrown in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php on line 87
+[08-Jul-2024 14:02:19 UTC] PHP Warning:  Une erreur imprévue s’est produite. Il pourrait y avoir un problème avec WordPress.org ou la configuration de ce serveur. Si vous continuez à rencontrer ce problème, veuillez vous rendre sur les <a href="https://wpfr.net/support">forums de support</a>. (WordPress n’a pas pu établir de connexion sécurisée vers WordPress.org. Veuillez contacter l’administrateur ou l’administratrice de votre serveur.) in C:\xampp\htdocs\motaphoto\wp-admin\includes\translation-install.php on line 62

@@ -33,19 +33,75 @@
   font-weight: 400;
   line-height: 23.7px;
   text-align: left;
+  
+}
+#main-menu a:hover{
+  font-weight: 700;
+}
+#main-menu li{
+  padding: 10px 40px 0 10px;
+  list-style: none;
+}
+
+
+.burger-menu {
+  display: none; /* Caché par défaut, sera affiché sur mobile */
+}
+
+.burger-button {
+ 
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger-icon {
+  display: inline;
+}
+
+.close-icon {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  
+  width: 80%;
+  height: 100%;
+  background-color: #E00000;
+  z-index: 9999;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  justify-content: center;
+  text-align: center;
+  top: 80px;
+  
+}
+
+.mobile-menu.active {
+  display: block;
+}
+.mobile-main-navigation a{
+  text-decoration: none;
+  color:white;
+  font-family: Space Mono;
+font-size: 44px;
+font-weight: 400;
+line-height: 65.16px;
+text-align: center;
+margin-bottom: 100px;
 
   
 }
-#main-menu li{
-padding: 10px 40px 0 10px;
-list-style: none;
+.mobile-main-navigation li{
+  list-style: none;
+  margin-bottom: 50px;
 }
-
-/* Cache le bouton de menu burger par défaut */
-.menu-button  {
-  display: none;
-}
-.close-button{
+.burger-button.open .burger-icon {
   display: none;
 }
 
+.burger-button.open .close-icon {
+  display: inline;
+}

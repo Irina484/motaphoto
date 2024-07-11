@@ -1,13 +1,17 @@
-<div id="lightbox-overlay" style="display:none;">
-    <div id="lightbox-container">
-        <button id="lightbox-close">&times;</button>
-        <img id="lightbox-image" src="" alt="">
-        <div id="lightbox-info">
-            <h2 id="lightbox-title"></h2>
-            <p id="lightbox-reference"></p>
-            <p id="lightbox-categories"></p>
-        </div>
-        <button id="lightbox-prev">&laquo; Précédent</button>
-        <button id="lightbox-next">Suivant &raquo;</button>
+
+<div class="lightbox">
+    <div class="lightbox-content">
+        <button class="lightbox-close">✕</button>
+        <button class="lightbox-prev">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fleche-gauche-blanche.png" alt="Précédente">
+            Précédente
+        </button>
+        <img class="lightbox-image" src="" alt="Image en grand">
+        <button class="lightbox-next">Suivante<img src="<?php echo get_template_directory_uri(); ?>/assets/images/fleche-droit-blanche.png" alt="Suivante"></button>
+    </div>
+    <div class="lightbox-details">
+        <p class="lightbox-reference"></p>
+        <p class="lightbox-categories"></p>
     </div>
 </div>
+
