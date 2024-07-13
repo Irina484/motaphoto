@@ -89,7 +89,6 @@ function frontpage_photo() {
             'posts_per_page' => $posts_per_page,
             'offset' => $offset,
             'tax_query' => count($tax_query) > 1 ? $tax_query : '',
-            
         );
 
         $photos = get_posts($args);
@@ -101,7 +100,8 @@ function frontpage_photo() {
                 'title' => get_the_title($photo->ID),
                 'categories' => strip_tags(get_the_term_list($photo->ID, 'categorie', '', ', ', '')),
                 'reference' => get_field('reference', $photo->ID),
-                'permalink' => get_permalink($photo->ID)
+                'permalink' => get_permalink($photo->ID),
+                'date' => get_the_date('c', $photo->ID) // Ajout de la date
             );
         }
 
@@ -112,4 +112,3 @@ function frontpage_photo() {
 
     wp_die();
 }
-

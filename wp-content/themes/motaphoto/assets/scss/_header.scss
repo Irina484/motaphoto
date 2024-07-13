@@ -66,7 +66,6 @@
 .mobile-menu {
   display: none;
   position: fixed;
-  
   width: 80%;
   height: 100%;
   background-color: #E00000;
@@ -76,6 +75,7 @@
   justify-content: center;
   text-align: center;
   top: 80px;
+  
   
 }
 
@@ -104,4 +104,13 @@ margin-bottom: 100px;
 
 .burger-button.open .close-icon {
   display: inline;
+}
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}
+#mobile-main-menu{
+  margin-top: 200px;
+  width: 350px;
+  height: auto;
 }

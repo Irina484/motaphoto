@@ -49,8 +49,8 @@
     <form id="ordre" class="taxonomie_ordre">
         <select id="select-ordre" name="ordre">
             <option value="" hidden disabled selected>TRIER PAR</option>
-            <option value="DESC">À partir des plus récentes</option>
-            <option value="ASC">À partir des plus anciennes</option>
+            <option value="DESC">À PARTIR DES PLUS RÉCENTES</option>
+            <option value="ASC">À PARTIR DES PLUS ANCIENNES</option>
         </select>
     </form>
     </div>

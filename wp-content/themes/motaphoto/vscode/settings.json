@@ -18,7 +18,9 @@
     "**/_front-page.scss",
     "**/_responsive.scss",
     "**/_photo_block.scss",
-    "**/_lightbox.scss"
+    "**/_lightbox.scss",
+    "**/_page.scss"
+
   ],
   "liveSassCompile.settings.generateMap": false,
   "liveSassCompile.settings.autoprefix": []

@@ -28,12 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const burgerButton = document.querySelector('.burger-button');
     const mobileMenu = document.querySelector('.mobile-menu');
+    const body = document.body; // Sélectionner le body directement
 
     burgerButton.addEventListener('click', function() {
         mobileMenu.classList.toggle('active');
         burgerButton.classList.toggle('open');
+        body.classList.toggle('no-scroll'); // Ajouter ou supprimer la classe no-scroll du body
     });
 });
+
 
 
 
@@ -43,56 +46,57 @@ jQuery(document).ready(function($) {
     let photosPerPage = $('#photos-per-page').val();
     let categorieSlug = $('#categorie-slug').val() || '';
     let formatSlug = $('#format-slug').val() || '';
+    let orderBy = $('#select-ordre').val() || 'DESC';
     let page = 0;
-    let photosArray = []; // Tableau pour stocker les photos chargées
+    let photosArray = [];
 
     function photosPagin(reset = false) {
         if (reset) {
-        page = 0;
-        photosArray = []; // Réinitialiser le tableau des photos
-        $('.photo_type').empty();
-    } else {
-        page = page + 1; // Incrémenter page de 1
+            page = 0;
+            photosArray = [];
+            $('.photo_type').empty();
+        } else {
+            page++;
+        }
+
+        let data = new URLSearchParams({
+            action: 'frontpage_photo',
+            posts_per_page: photosPerPage,
+            categorie_slug: categorieSlug,
+            format_slug: formatSlug,
+            page: page,
+            security: motaphoto_ajax.nonce
+        });
+
+        fetch(motaphoto_ajax.ajax_url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: data
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                photosArray = photosArray.concat(data.data);
+                sortPhotos(orderBy);
+            } else {
+                console.error('Error:', data.data);
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
     }
 
-    let data = new URLSearchParams({
-        action: 'frontpage_photo',
-        posts_per_page: photosPerPage,
-        categorie_slug: categorieSlug,
-        format_slug: formatSlug,
-        page: page,
-        security: motaphoto_ajax.nonce
-    });
-
-    fetch(motaphoto_ajax.ajax_url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: data
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.success) {
-           
-            photosArray = photosArray.concat(data.data); // Ajouter les nouvelles photos au tableau
-            generatePhotos(data.data);
-        } else {
-            console.error('Error:', data.data);
-        }
-    })
-    .catch(error => {
-        console.error('Fetch error:', error);
-    });
-}
     function generatePhotos(photos) {
         const container = $('.photo_type');
-
+        container.empty();
         photos.forEach((photo, index) => {
             const photoBlock = $(`
                 <div class="photo-post">
@@ -110,8 +114,6 @@ jQuery(document).ready(function($) {
                 </div>
             `);
             container.append(photoBlock);
-
-            // Attacher les effets de survol et autres événements
             survolEffets(photoBlock[0], photo, index);
         });
     }
@@ -120,12 +122,10 @@ jQuery(document).ready(function($) {
         photoElement.querySelector('.img-photo').addEventListener('click', function() {
             openLightbox(photo, index);
         });
-
         photoElement.querySelector('.info-icon').addEventListener('click', function(event) {
             event.stopPropagation();
             showPhotoInfo(photo);
         });
-
         photoElement.querySelector('.fullscreen-icon').addEventListener('click', function(event) {
             event.stopPropagation();
             openLightbox(photo, index);
@@ -133,27 +133,35 @@ jQuery(document).ready(function($) {
     }
 
     function showPhotoInfo(photo) {
-        window.location.href = photo.permalink; // Redirige vers la page de la photo
+        window.location.href = photo.permalink;
     }
 
-    // Fonction pour ouvrir la photo en plein écran dans une lightbox
     let currentPhotoIndex = 0;
 
     function openLightbox(photo, index) {
         currentPhotoIndex = index;
-
         const lightbox = document.querySelector('.lightbox');
         const lightboxImage = lightbox.querySelector('.lightbox-image');
         const lightboxReference = lightbox.querySelector('.lightbox-reference');
         const lightboxCategories = lightbox.querySelector('.lightbox-categories');
+        const spinner = lightbox.querySelector('.spinner');
 
+        spinner.style.display = 'block';
+        lightboxImage.style.display = 'none';
         lightboxImage.src = photo.thumbnail;
         lightboxImage.alt = photo.title;
-
         lightboxReference.textContent = photo.reference;
         lightboxCategories.textContent = photo.categories;
-
         lightbox.classList.add('open');
+
+        lightboxImage.onload = () => {
+            spinner.style.display = 'none';
+            lightboxImage.style.display = 'block';
+        };
+
+        lightboxImage.onerror = () => {
+            spinner.style.display = 'none';
+        };
     }
 
     function afficherPhotoPrecedente() {
@@ -176,39 +184,42 @@ jQuery(document).ready(function($) {
         document.querySelector('.lightbox').classList.remove('open');
     });
 
-    // Fermeture de la lightbox lorsqu'on clique en dehors du contenu
     document.querySelector('.lightbox').addEventListener('click', (event) => {
         if (event.target === event.currentTarget) {
             event.currentTarget.classList.remove('open');
         }
     });
 
-    // Load initial photos
-    photosPagin(true);
-
-    // Load more photos on button click
-    $('#load-more-button').on('click', function() {
-        photosPagin();
-    });
-
-    // Filter photos by category
     $('#select-categorie').on('change', function() {
         categorieSlug = $(this).val();
-        $('#categorie-slug').val(categorieSlug); // Mise à jour de la valeur cachée
+        $('#categorie-slug').val(categorieSlug);
         photosPagin(true);
     });
 
-    // Filter photos by format
     $('#select-format').on('change', function() {
         formatSlug = $(this).val();
-        $('#format-slug').val(formatSlug); // Mise à jour de la valeur cachée
+        $('#format-slug').val(formatSlug);
         photosPagin(true);
     });
 
-    // Sort photos
     $('#select-ordre').on('change', function() {
         orderBy = $(this).val();
-        photosPagin(true);
+        sortPhotos(orderBy);
+    });
+
+    function sortPhotos(orderBy) {
+        if (orderBy === 'ASC') {
+            photosArray.sort((a, b) => new Date(a.date) - new Date(b.date));
+        } else if (orderBy === 'DESC') {
+            photosArray.sort((a, b) => new Date(b.date) - new Date(a.date));
+        }
+        generatePhotos(photosArray);
+    }
+
+    photosPagin(true);
+
+    $('#load-more-button').on('click', function() {
+        photosPagin();
     });
 });
 
@@ -302,49 +313,71 @@ jQuery(document).ready(function($) {
     // Fonction pour ouvrir la photo en plein écran dans une lightbox
     let currentPhotoIndex = 0;
 
-    function openLightbox(photo, index) {
-        currentPhotoIndex = index;
+function openLightbox(photo, index) {
+    currentPhotoIndex = index;
 
-        const lightbox = document.querySelector('.lightbox');
-        const lightboxImage = lightbox.querySelector('.lightbox-image');
-        const lightboxReference = lightbox.querySelector('.lightbox-reference');
-        const lightboxCategories = lightbox.querySelector('.lightbox-categories');
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImage = lightbox.querySelector('.lightbox-image');
+    const lightboxReference = lightbox.querySelector('.lightbox-reference');
+    const lightboxCategories = lightbox.querySelector('.lightbox-categories');
+    const spinner = lightbox.querySelector('.spinner');
 
-        lightboxImage.src = photo.thumbnail;
-        lightboxImage.alt = photo.title;
+    // Afficher le spinner
+    spinner.style.display = 'block';
 
-        lightboxReference.textContent = `${photo.reference}`;
-        lightboxCategories.textContent = `${photo.categories}`;
+    // Cacher l'image jusqu'à ce qu'elle soit chargée
+    lightboxImage.style.display = 'none';
 
-        lightbox.classList.add('open');
+    lightboxImage.src = photo.thumbnail;
+    lightboxImage.alt = photo.title;
+    lightboxReference.textContent = photo.reference;
+    lightboxCategories.textContent = photo.categories;
+    lightbox.classList.add('open');
+
+    // Attendre que l'image soit complètement chargée
+    lightboxImage.onload = () => {
+        // Cacher le spinner
+        spinner.style.display = 'none';
+
+        // Afficher l'image
+        lightboxImage.style.display = 'block';
+    };
+
+    // Gérer le cas où l'image ne peut pas être chargée
+    lightboxImage.onerror = () => {
+        // Cacher le spinner même si l'image ne se charge pas
+        spinner.style.display = 'none';
+        // Vous pouvez également afficher un message d'erreur ici si nécessaire
+    };
+}
+
+function afficherPhotoPrecedente() {
+    if (currentPhotoIndex > 0) {
+        currentPhotoIndex--;
+        openLightbox(photosArray[currentPhotoIndex], currentPhotoIndex);
     }
+}
 
-    function afficherPhotoPrecedente() {
-        if (currentPhotoIndex > 0) {
-            currentPhotoIndex--;
-            console.log("Photo précédente:", currentPhotoIndex);
-            openLightbox(photosArray[currentPhotoIndex], currentPhotoIndex);
-        }
+function afficherPhotoSuivante() {
+    if (currentPhotoIndex < photosArray.length - 1) {
+        currentPhotoIndex++;
+        openLightbox(photosArray[currentPhotoIndex], currentPhotoIndex);
     }
+}
 
-    function afficherPhotoSuivante() {
-        if (currentPhotoIndex < photosArray.length - 1) {
-            currentPhotoIndex++;
-            console.log("Photo suivante:", currentPhotoIndex);
-            openLightbox(photosArray[currentPhotoIndex], currentPhotoIndex);
-        }
-    }
-
-    document.querySelector('.lightbox-prev').addEventListener('click', afficherPhotoPrecedente);
-    document.querySelector('.lightbox-next').addEventListener('click', afficherPhotoSuivante);
-    document.querySelector('.lightbox-close').addEventListener('click', () => {
-        document.querySelector('.lightbox').classList.remove('open');
-    });
-
-    // Fermeture de la lightbox lorsqu'on clique en dehors du contenu
-    document.querySelector('.lightbox').addEventListener('click', (event) => {
-        if (event.target === event.currentTarget) {
-            event.currentTarget.classList.remove('open');
-        }
-    });
+document.querySelector('.lightbox-prev').addEventListener('click', afficherPhotoPrecedente);
+document.querySelector('.lightbox-next').addEventListener('click', afficherPhotoSuivante);
+document.querySelector('.lightbox-close').addEventListener('click', () => {
+    document.querySelector('.lightbox').classList.remove('open');
 });
+
+// Fermeture de la lightbox lorsqu'on clique en dehors du contenu
+document.querySelector('.lightbox').addEventListener('click', (event) => {
+    if (event.target === event.currentTarget) {
+        event.currentTarget.classList.remove('open');
+    }
+});
+
+});
+
+

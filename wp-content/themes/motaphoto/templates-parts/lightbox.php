@@ -1,6 +1,7 @@
 
 <div class="lightbox">
     <div class="lightbox-content">
+        <div class="spinner" style="display: none;"></div>
         <button class="lightbox-close">✕</button>
         <button class="lightbox-prev">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fleche-gauche-blanche.png" alt="Précédente">

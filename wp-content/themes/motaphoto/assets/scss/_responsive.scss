@@ -14,7 +14,7 @@
   .header_logo {
     width: 138px;
     height: 9px;
-    margin-left: 50px;
+    margin-left: 20px;
     
   }
   .burger-menu {
@@ -95,22 +95,24 @@
 .post-thumbnail img{
   width: 80%;
   height: auto;
+
   
 }
 .post-content{
 display: flex;
 flex-direction: column-reverse;
 align-items: center;
+margin-right: 50px;
 }
 .post-details{
   width: 100%;
 }
 .post-details h2 {
   font-size: 46px;
-  margin-left: 50px;
+  margin-left: 40px;
 }
 .post-details p{
-  margin-left: 50px;
+  margin-left: 40px;
 }
 .containerstyle {
 display: flex;
