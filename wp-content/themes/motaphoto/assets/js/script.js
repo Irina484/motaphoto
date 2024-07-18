@@ -50,7 +50,7 @@ jQuery(document).ready(function($) {
     let page = 0;
     let photosArray = [];
 
-    function photosPagin(reset = false) {
+    function loadnextPage(reset = false) {
         if (reset) {
             page = 0;
             photosArray = [];
@@ -193,13 +193,13 @@ jQuery(document).ready(function($) {
     $('#select-categorie').on('change', function() {
         categorieSlug = $(this).val();
         $('#categorie-slug').val(categorieSlug);
-        photosPagin(true);
+        loadnextPage(true);
     });
 
     $('#select-format').on('change', function() {
         formatSlug = $(this).val();
         $('#format-slug').val(formatSlug);
-        photosPagin(true);
+        loadnextPage(true);
     });
 
     $('#select-ordre').on('change', function() {
@@ -216,10 +216,10 @@ jQuery(document).ready(function($) {
         generatePhotos(photosArray);
     }
 
-    photosPagin(true);
+    loadnextPage(true);
 
     $('#load-more-button').on('click', function() {
-        photosPagin();
+        loadnextPage();
     });
 });
 
@@ -381,3 +381,23 @@ document.querySelector('.lightbox').addEventListener('click', (event) => {
 });
 
 
+
+
+  (function ($) {
+    'use strict'; 
+    $(document).ready(function() {
+        // Lorsqu'une option est sélectionnée
+        $('#select-categorie').change(function() {
+          // Supprimer la classe "selected" de toutes les options
+          $('.js-categorie').removeClass('selected');
+          // Ajouter la classe "selected" à l'option sélectionnée
+          $(this).find(':selected').addClass('selected');
+        });
+        $('#select-format').change(function() {
+          // Supprimer la classe "selected" de toutes les options
+          $('.js-format').removeClass('selected');
+          // Ajouter la classe "selected" à l'option sélectionnée
+          $(this).find(':selected').addClass('selected');
+        });
+      });
+  })(jQuery);

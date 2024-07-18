@@ -26,6 +26,19 @@
     margin: 0 50px;
 }
 
+.spinner {
+    display: none; /* Masquer par défaut */
+    border: 4px solid rgba(86, 133, 127, 0.1);
+    border-left-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 .lightbox-prev,
 .lightbox-next {
@@ -55,13 +68,11 @@
 .lightbox-prev {
     top: 50%;
     left: -300px;
-   
 }
 
 .lightbox-next {
     top: 50%;
     right: -150px;
-   
 }
 
 .lightbox-image {
@@ -79,9 +90,9 @@
     gap: 440px;
     align-items: center;
     margin-left: -610px;
-    
 }
- .lightbox-categories{
+
+.lightbox-categories {
     font-family: Space Mono;
     font-size: 14px;
     font-weight: 400;
@@ -90,7 +101,7 @@
     color: #fff;
 }
 
-.lightbox-reference{
+.lightbox-reference {
     font-family: Poppins;
     font-size: 14px;
     font-weight: 500;
@@ -98,22 +109,18 @@
     text-align: left;
     color: #fff;
 }
-.lightbox-reference {
-    text-align: left;
-}
 
-.lightbox-categories {
-    text-align: right;
-}
 .lightbox-details p {
     margin-top: 550px;
 }
 
-.lightbox-prev img .lightbox-next img{
+.lightbox-prev img,
+.lightbox-next img {
     width: 25px;
-
 }
-.lightbox-prev .lightbox-next{
+
+.lightbox-prev,
+.lightbox-next {
     font-family: Space Mono;
     font-size: 12px;
     font-weight: 400;
@@ -125,19 +132,6 @@
     position: absolute;
     background: none;
     border: none;
- 
-}
-.spinner {
-    border: 4px solid rgba(86, 133, 127, 0.1);
-    border-left-color: white;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 @keyframes spin {

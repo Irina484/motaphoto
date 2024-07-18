@@ -11,6 +11,7 @@
   ?>
 </section>
 
+<!-- Ajouter les filtres -->
 
 <section class="taxonomies">
     <div class="tax_categorie_format">
@@ -21,7 +22,7 @@
             $terms = get_terms(['taxonomy' => 'categorie', 'orderby' => 'name']);
             if (!empty($terms) && !is_wp_error($terms)) {
                 foreach ($terms as $term) {
-                    echo '<option value="' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</option>';
+                    echo '<option class="js-categorie" value="' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</option>';
                 }
             }
             ?>
@@ -36,7 +37,7 @@
         $terms = get_terms(['taxonomy' => 'format', 'orderby' => 'name']);
         if (!empty($terms) && !is_wp_error($terms)) {
             foreach ($terms as $term) {
-                echo '<option value="' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</option>';
+                echo '<option class="js-format" value="' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</option>';
             }
         }
         ?>

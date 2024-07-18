@@ -28,40 +28,53 @@
 .blocphoto{
     width: 1248px;
     margin-left: 150px;
-
 }
 
 #categorie{
     color: #B8BBC2;
 }
-#select-categorie, #select-format, #select-ordre{
-    width: 260px;
-    height: 42px;
-    padding: 11px 18px 11px 18px;
-    border-radius: 8px ;
-    border-color: #B8BBC2; 
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 18px;
-    letter-spacing: 0.03em;
-    text-align: left;
-    color: black;
+#select-categorie, #select-format, #select-ordre {
     
+  width: 260px;
+  height: 42px;
+  padding-left:  15px;
+  margin-bottom: 15px;
+  font-family: "Space Mono", monospace;
+  border-radius: 8px;
+  border-color: #B8BBC2;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+
+
 }
 
 
-#select-categorie option {
+.js-categorie {
+    transition: background-color 0.3s ease;
+  }
+  .js-categorie.hover {
+    background-color: #FFD6D6 !important;
+  }
+  .js-categorie.selected {
+    background-color: #E00000;
+  }
+  .js-categorie.active {
+    background-color: #FE5858;
+  }
+  .js-format {
+    transition: background-color 0.3s ease;
+  }
+  .js-format.hover {
+    background-color: #FFD6D6 !important;
+  }
+  .js-format.selected {
+    background-color: #E00000;
+  }
+  .js-format.active {
+    background-color: #FE5858;
+  }
 
-    
-    font-size: 12px;
-    padding: 10px 0; 
-   
-}
-
-/* Ajouter de l'espace entre les options */
-#select-categorie option:not(:first-child) {
-    margin-top: 5px;
-}
 .taxonomies {
     display: flex;
     flex-direction: row;
