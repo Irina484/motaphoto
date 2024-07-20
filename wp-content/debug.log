@@ -1171,3 +1171,12 @@ Stack trace:
 [08-Jul-2024 14:02:19 UTC] PHP Warning:  Une erreur imprévue s’est produite. Il pourrait y avoir un problème avec WordPress.org ou la configuration de ce serveur. Si vous continuez à rencontrer ce problème, veuillez vous rendre sur les <a href="https://wpfr.net/support">forums de support</a>. (WordPress n’a pas pu établir de connexion sécurisée vers WordPress.org. Veuillez contacter l’administrateur ou l’administratrice de votre serveur.) in C:\xampp\htdocs\motaphoto\wp-admin\includes\translation-install.php on line 62
 [12-Jul-2024 10:37:16 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting "elseif" or "else" or "endif" in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\page.php on line 15
 [17-Jul-2024 11:18:28 UTC] Erreur d’événement de replanification de tâche pour le crochet wp_privacy_delete_old_export_files. Code d’erreur : could_not_set. Message d’erreur : La liste des évènements planifiés n’a pas pu être sauvegardée.. Données : {"schedule":"hourly","args":[],"interval":3600}
+[19-Jul-2024 08:46:05 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Post as array in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\templates-parts\photo_block.php:5
+Stack trace:
+#0 C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\includes\ajax.php(44): include()
+#1 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(324): single_photo('')
+#2 C:\xampp\htdocs\motaphoto\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#3 C:\xampp\htdocs\motaphoto\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#4 C:\xampp\htdocs\motaphoto\wp-admin\admin-ajax.php(192): do_action('wp_ajax_single_...')
+#5 {main}
+  thrown in C:\xampp\htdocs\motaphoto\wp-content\themes\motaphoto\templates-parts\photo_block.php on line 5
